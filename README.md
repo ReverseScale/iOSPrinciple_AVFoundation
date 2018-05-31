@@ -21,7 +21,7 @@ AVFoundation是苹果在iOS和OS X系统中用于处理基于时间的媒体数�
 
 ②空间采样：一般用在可视化内容的数字化过程中,对一幅图片在一定分辨率下捕捉其亮度和色度.
 
-## 音频处理
+## 音频处理部分
 
 现实生活中，我们听到的声音都是时间连续的，我们称为这种信号叫模拟信号。模拟信号需要进行数字化以后才能在计算机中使用。数字化的过程如下：
 
@@ -1255,5 +1255,7 @@ if (self.delegate && [self.delegate respondsToSelector:@selector(requestTaskDidF
 * 在线播放：使用AVFoundation的AVPlayer可以满足
 * 在线播放同时存储文件：使用AudioFileStreamer ＋ AudioQueue 可以满足
 * 在线播放且带有音效处理：使用 AudioFileStreamer ＋ AudioQueue ＋ 音效模块（系统自带或者自行开发）来满足
+
+未完待续，AVFoundation 体系太大，慢慢整理 🤣
 
 > 以上文章整理自：https://www.jianshu.com/p/589999e53461、https://blog.csdn.net/zahuopuboss/article/details/54862749、https://blog.csdn.net/feng2qing/article/details/67655175、https://blog.csdn.net/dolacmeng/article/details/77430108、https://www.jianshu.com/p/746cec2c3759、http://www.cocoachina.com/ios/20160726/17194.html、https://www.jianshu.com/p/c48195126040
