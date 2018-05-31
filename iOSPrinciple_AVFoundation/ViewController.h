@@ -1,0 +1,15 @@
+//
+//  ViewController.h
+//  iOSPrinciple_AVFoundation
+//
+//  Created by WhatsXie on 2018/5/31.
+//  Copyright © 2018年 WhatsXie. All rights reserved.
+//
+
+#import <UIKit/UIKit.h>
+
+@interface ViewController : UIViewController
+
+
+@end
+
