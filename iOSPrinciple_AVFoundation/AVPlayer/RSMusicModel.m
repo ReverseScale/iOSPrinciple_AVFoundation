@@ -9,9 +9,10 @@
 #import "RSMusicModel.h"
 
 @implementation RSMusicModel
-- (instancetype)initWithTitle:(NSString*)title musicUrl:(NSString*)musicUrl {
+- (instancetype)initWithTitle:(NSString *)title songerName:(NSString *)singerName musicUrl:(NSString *)musicUrl {
     if (self == [super init]) {
         self.songName = title;
+        self.singerName = singerName;
         self.musicUrl = musicUrl;
     }
     return self;

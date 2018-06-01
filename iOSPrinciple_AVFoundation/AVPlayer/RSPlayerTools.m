@@ -35,12 +35,12 @@
     return self;
 }
 
-- (void)playMusicAtIndex:(NSInteger)index{
+- (void)playMusicAtIndex:(NSInteger)index {
     _currentIndex = index;
     [self setupPlayerWithModel:[_dataSourceArr objectAtIndex:index]];
 }
 
-- (void)setupPlayerWithModel:(RSMusicModel *)model  {
+- (void)setupPlayerWithModel:(RSMusicModel *)model {
     self.currentMusic = model;
     self.playerItem = [AVPlayerItem playerItemWithURL:[NSURL URLWithString:model.musicUrl]];
     //添加通知
@@ -71,7 +71,7 @@
                                   };
 }
 
-
+#pragma mark - control
 - (void)stop {
     [self.aPlayer pause];
     [self.aPlayer replaceCurrentItemWithPlayerItem:nil];
@@ -79,6 +79,7 @@
     _currentMusic = nil;
     _currentIndex = -1;
     _albumId = 0;
+    
     //清除锁屏信息
     MPNowPlayingInfoCenter *infoCenter = [MPNowPlayingInfoCenter defaultCenter];
     infoCenter.nowPlayingInfo = nil;
@@ -121,14 +122,15 @@
     return YES;
 }
 
-- (BOOL)playPre {
+- (BOOL)playBack {
     if (_currentIndex == 0) {
         return NO;
     }
-    [self preSong];
+    [self backSong];
     return YES;
 }
 
+#pragma mark - set/get
 - (NSInteger)currentTime {
     return CMTimeGetSeconds(self.playerItem.currentTime);
 }
@@ -162,7 +164,7 @@
 }
 
 //播放上一首歌曲
-- (void)preSong {
+- (void)backSong {
     //将上一个Item置为nil， 为下一个播放做准备
     self.playerItem = nil;
     if (--_currentIndex < 0) {
@@ -173,11 +175,11 @@
     }
 }
 
+#pragma mark - selector
 - (void)handleActionTime:(NSTimer *)timer {
     AVPlayerItem *newItem = (AVPlayerItem *)timer.userInfo;
     if ([newItem status] == AVPlayerStatusReadyToPlay) {
         [[NSNotificationCenter defaultCenter] postNotificationName:HYPlayerToolMusicTimeUpdate object:nil];
-        
     }
 }
 
@@ -190,7 +192,7 @@
 }
 
 
-#pragma mark - Private method
+#pragma mark - timer method
 //时间格式化
 - (NSString *)timeformatFromSeconds:(NSInteger)seconds {
     NSInteger totalm = seconds/(60);

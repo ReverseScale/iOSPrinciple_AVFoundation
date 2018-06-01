@@ -15,66 +15,54 @@
 #define HYPlayerToolMusicPause @"HYPlayerToolMusicPause"
 #define HYPlayerToolMusicStop @"HYPlayerToolMusicStop"
 
-@class HYMusic;
+@class RSMusicModel;
 
 @interface RSPlayerTools : NSObject
 
+@property(nonatomic,strong) NSMutableArray<RSMusicModel*> *dataSourceArr;
+@property(nonatomic,strong) RSMusicModel *currentMusic;
+
 @property(nonatomic,strong) AVQueuePlayer *aPlayer;
-@property(nonatomic,strong) AVPlayerItem *playerItem;  //当前播放的Item
-@property(nonatomic,strong) NSMutableArray<HYMusic*> *dataSourceArr; //当前播放的数据源
-@property(nonatomic,assign) NSInteger currentIndex;//当前播放序列
-@property(nonatomic,assign) BOOL isPlaying;//是否正在播放
-@property(nonatomic,assign) NSInteger currentTime;//已播放时长
-@property(nonatomic,assign) NSInteger durationTime;//总时长
-@property(nonatomic,assign) CGFloat currentPercent;//已播放比例
-@property(nonatomic,strong) NSString *currentTimeStr;//已播放时长字符串
-@property(nonatomic,strong) NSString *durationTimeStr;//总时长字符串
-@property(nonatomic,strong) HYMusic *currentMusic;//当前播放的music模型
-@property(nonatomic,assign) NSInteger albumId;//当前播放的专辑id
-//1-每日开场白为 2-最新  3-排行
+@property(nonatomic,strong) AVPlayerItem *playerItem;
+@property(nonatomic,assign) BOOL isPlaying;
+@property(nonatomic,assign) NSInteger albumId;
+@property(nonatomic,assign) NSInteger currentIndex;
+@property(nonatomic,assign) NSInteger currentTime;
+@property(nonatomic,assign) NSInteger durationTime;
+@property(nonatomic,assign) CGFloat currentPercent;
+@property(nonatomic,strong) NSString *currentTimeStr;
+@property(nonatomic,strong) NSString *durationTimeStr;
+
 @property (nonatomic, strong) NSTimer *playerTimer;
 
+/// 单例
 + (instancetype)sharePlayerTool;
 
-/**
- *  播放第index首
- **/
+/// 播放第index首
 - (void)playMusicAtIndex:(NSInteger)index;
 
-/**
- *  暂停播放
- **/
+/// 暂停播放
 - (void)pause;
 
-/**
- *  停止播放
- **/
+/// 停止播放
 - (void)stop;
 
-/**
- *  继续播放
- **/
+/// 继续播放
 - (void)play;
 
-/**
- *  拖动进度到
- **/
+/// 拖动进度到
 - (void)seekTo:(CGFloat)percent;
 
-/**
- *  播放下一首
- **/
+/// 播放下一首
 - (BOOL)playNext;
 
-/**
- *  播放上一首
- **/
-- (BOOL)playPre;
+/// 播放上一首
+- (BOOL)playBack;
 
-//锁屏图片
+/// 锁屏图片
 - (void)updateSongImage:(UIImage*)image url:(NSString*)url;
 
-
+/// 时间戳转换
 - (NSString *)timeformatFromSeconds:(NSInteger)seconds;
 
 @end

@@ -7,13 +7,14 @@
 //
 
 #import "AVPlayerViewController.h"
-#import "RSMusicModel.h"
-#import "RSPlayerTools.h"
+
 #import <MediaPlayer/MPRemoteCommandCenter.h>
 #import <MediaPlayer/MPRemoteCommand.h>
 
-#define ColorForTheme [UIColor colorWithRed:255.0/255.0 green:112.0/255.0 blue:67.0/255.0 alpha:1]
+#import "RSMusicModel.h"
+#import "RSPlayerTools.h"
 
+#define ColorForTheme [UIColor colorWithRed:255.0/255.0 green:112.0/255.0 blue:67.0/255.0 alpha:1]
 
 @interface AVPlayerViewController ()
 @property(nonatomic,assign) BOOL isSeeking;
@@ -27,7 +28,7 @@
     // Do any additional setup after loading the view.
     self.timeSlider.thumbTintColor = ColorForTheme;
     self.timeSlider.minimumTrackTintColor = ColorForTheme;
-    [self.timeSlider setThumbImage:[UIImage imageNamed:@"seekbar_thumb_normal"] forState:UIControlStateNormal];
+    [self.timeSlider setThumbImage:[UIImage imageNamed:@""] forState:UIControlStateNormal];
     
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(beginPlayMusic:) name:HYPlayerToolMusicBeginPlay object:nil];
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(updatePlayMusicTime:) name:HYPlayerToolMusicTimeUpdate object:nil];
@@ -39,21 +40,22 @@
 }
 
 - (void)setUpData {
-    NSMutableArray<HYMusic*> *musicArray = [NSMutableArray array];
+    NSMutableArray<RSMusicModel*> *musicArray = [NSMutableArray array];
     NSArray *urlArray = @[@"http://sc1.111ttt.cn/2016/5/09/12/202121719072.mp3",
                           @"http://sc1.111ttt.cn/2016/5/09/12/202121719072.mp3",
                           @"http://sc1.111ttt.cn/2016/5/09/12/202121719072.mp3"];
     
     for (int i = 0; i < urlArray.count; i++) {
-        HYMusic *music = [[RSMusicModel alloc] initWithTitle:[NSString stringWithFormat:@"歌曲%zd",i+1] musicUrl:urlArray[i]];
-        [musicArray addObject:music];
+        RSMusicModel *musicModel = [[RSMusicModel alloc] initWithTitle:[NSString stringWithFormat:@"播放曲目%d",i+1] songerName:[NSString stringWithFormat:@"%d号歌手",i+1] musicUrl:urlArray[i]];
+        
+        [musicArray addObject:musicModel];
     }
     
     [RSPlayerTools sharePlayerTool].dataSourceArr = musicArray;
 }
 
 - (void)beginPlayMusic:(NSNotification*)noti {
-    HYMusic *music = noti.object;
+    RSMusicModel *music = noti.object;
     [self setUpDataWithMusic:music];
 }
 
@@ -66,6 +68,7 @@
     
     //歌曲信息
     self.titleLabel.text = music.songName;
+    self.songerLabel.text = music.singerName;
     self.endTimeLabel.text = [[RSPlayerTools sharePlayerTool] durationTimeStr];
     
     self.title = [NSString stringWithFormat:@"正在播放%zd/%zd",tool.currentIndex+1,tool.dataSourceArr.count];
@@ -85,8 +88,7 @@
 
 #pragma mark - 音乐控制
 // 在需要处理远程控制事件的具体控制器或其它类中实现
-- (void)remoteControlEventHandler
-{
+- (void)remoteControlEventHandler {
     // 直接使用sharedCommandCenter来获取MPRemoteCommandCenter的shared实例
     MPRemoteCommandCenter *commandCenter = [MPRemoteCommandCenter sharedCommandCenter];
     
@@ -117,7 +119,7 @@
     [[RSPlayerTools sharePlayerTool] playNext];
 }
 - (void)previousTrackAction:(id)obj {
-    [[RSPlayerTools sharePlayerTool] playPre];
+    [[RSPlayerTools sharePlayerTool] playBack];
 }
 - (void)playOrPauseAction:(id)obj {
     if ([[RSPlayerTools sharePlayerTool] isPlaying]) {
@@ -150,7 +152,7 @@
 
 //点击上一曲
 - (IBAction)clickPre:(UIButton *)sender {
-    if(![[RSPlayerTools sharePlayerTool] playPre]){
+    if(![[RSPlayerTools sharePlayerTool] playBack]){
         NSLog(@"已是第一首");
     }
 }
