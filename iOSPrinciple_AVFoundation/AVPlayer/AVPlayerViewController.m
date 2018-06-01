@@ -69,7 +69,6 @@
     //歌曲信息
     self.titleLabel.text = music.songName;
     self.songerLabel.text = music.singerName;
-    self.endTimeLabel.text = [[RSPlayerTools sharePlayerTool] durationTimeStr];
     
     self.title = [NSString stringWithFormat:@"正在播放%zd/%zd",tool.currentIndex+1,tool.dataSourceArr.count];
     
