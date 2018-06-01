@@ -142,11 +142,11 @@
 }
 
 - (NSString*)currentTimeStr {
-    return  [self timeformatFromSeconds:self.currentTime];
+    return [self timeformatFromSeconds:self.currentTime];
 }
 
 - (NSString*)durationTimeStr {
-    return  [self timeformatFromSeconds:self.durationTime];
+    return [self timeformatFromSeconds:self.durationTime];
 }
 
 //播放下一首歌曲

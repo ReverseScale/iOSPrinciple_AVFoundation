@@ -66,7 +66,8 @@
     
     //歌曲信息
     self.titleLabel.text = music.songName;
-    //    self.endTimeLabel.text = [tool timeformatFromSeconds:[music.musicSecond integerValue]];
+    self.endTimeLabel.text = [[RSPlayerTools sharePlayerTool] durationTimeStr];
+    
     self.title = [NSString stringWithFormat:@"正在播放%zd/%zd",tool.currentIndex+1,tool.dataSourceArr.count];
     
     [self.playButton setSelected:[[RSPlayerTools sharePlayerTool] isPlaying]];
@@ -77,6 +78,7 @@
         RSPlayerTools *tool = [RSPlayerTools sharePlayerTool];
         self.startTimeLabel.text = tool.currentTimeStr;
         self.timeSlider.value = tool.currentPercent;
+        self.endTimeLabel.text = tool.durationTimeStr;
     }
 }
 
