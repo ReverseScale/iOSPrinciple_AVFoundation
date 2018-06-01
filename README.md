@@ -1034,6 +1034,8 @@ didCancelLoadingRequest:(AVAssetResourceLoadingRequest *)loadingRequest;
 
 先观察并猜测企鹅音乐的缓存策略（当然它不是用AVPlayer播放）：
 
+![](http://og1yl0w9z.bkt.clouddn.com/18-6-1/71084439.jpg)
+
 1、开始播放，同时开始下载完整的文件，当文件下载完成时，保存到缓存文件夹中；
 
 2、当seek时
@@ -1048,9 +1050,13 @@ PS2：之前已下载的部分就被删除了
 
 PS3：如果有别的seek操作则重复步骤2，如果此时再seek到进度40%，则会开始新的下载（范围40%-100%）
 
+![](http://og1yl0w9z.bkt.clouddn.com/18-6-1/17838818.jpg)
+
 3、当开始新的下载之后，由于文件不完整，下载完成之后不会保存到缓存文件夹中；
 
 4、下次再播放同一歌曲时，如果在缓存文件夹中存在，则直接播放缓存文件；
+
+![](http://og1yl0w9z.bkt.clouddn.com/18-6-1/32235777.jpg)
 
 代码实现：
 
