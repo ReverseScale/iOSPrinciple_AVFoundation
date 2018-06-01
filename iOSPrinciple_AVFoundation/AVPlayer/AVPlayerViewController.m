@@ -129,8 +129,6 @@
     }
 }
 
-
-
 #pragma mark - Action
 //点击播放
 - (IBAction)clickPlay:(UIButton *)sender {

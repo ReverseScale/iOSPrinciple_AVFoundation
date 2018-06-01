@@ -10,6 +10,14 @@
 		3406311920C0E0B100CE7ED8 /* sea.png in Resources */ = {isa = PBXBuildFile; fileRef = 3406311720C0E0B100CE7ED8 /* sea.png */; };
 		3406311A20C0E0B100CE7ED8 /* dog.png in Resources */ = {isa = PBXBuildFile; fileRef = 3406311820C0E0B100CE7ED8 /* dog.png */; };
 		343720F520C0F4A00078DB31 /* dog.wav in Resources */ = {isa = PBXBuildFile; fileRef = 343720F420C0F4A00078DB31 /* dog.wav */; };
+		3437210A20C11F250078DB31 /* NSString+SULoader.m in Sources */ = {isa = PBXBuildFile; fileRef = 3437210120C11F250078DB31 /* NSString+SULoader.m */; };
+		3437210B20C11F250078DB31 /* NSURL+SULoader.m in Sources */ = {isa = PBXBuildFile; fileRef = 3437210220C11F250078DB31 /* NSURL+SULoader.m */; };
+		3437210C20C11F250078DB31 /* SUResourceLoader.m in Sources */ = {isa = PBXBuildFile; fileRef = 3437210420C11F250078DB31 /* SUResourceLoader.m */; };
+		3437210D20C11F250078DB31 /* SURequestTask.m in Sources */ = {isa = PBXBuildFile; fileRef = 3437210620C11F250078DB31 /* SURequestTask.m */; };
+		3437210E20C11F250078DB31 /* SUPlayer.m in Sources */ = {isa = PBXBuildFile; fileRef = 3437210720C11F250078DB31 /* SUPlayer.m */; };
+		3437210F20C11F250078DB31 /* SUFileHandle.m in Sources */ = {isa = PBXBuildFile; fileRef = 3437210920C11F250078DB31 /* SUFileHandle.m */; };
+		3437211220C11F7C0078DB31 /* AVCachePlayerViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3437211120C11F7C0078DB31 /* AVCachePlayerViewController.m */; };
+		3437211420C1233E0078DB31 /* tree.png in Resources */ = {isa = PBXBuildFile; fileRef = 3437211320C1233E0078DB31 /* tree.png */; };
 		34D5BEC020BFBBBD00462281 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 34D5BEBF20BFBBBD00462281 /* AppDelegate.m */; };
 		34D5BEC620BFBBBD00462281 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 34D5BEC420BFBBBD00462281 /* Main.storyboard */; };
 		34D5BEC820BFBBC600462281 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 34D5BEC720BFBBC600462281 /* Assets.xcassets */; };
@@ -45,6 +53,22 @@
 		3406311720C0E0B100CE7ED8 /* sea.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = sea.png; path = iOSPrinciple_AVFoundation/Resource/images/sea.png; sourceTree = SOURCE_ROOT; };
 		3406311820C0E0B100CE7ED8 /* dog.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = dog.png; path = iOSPrinciple_AVFoundation/Resource/images/dog.png; sourceTree = SOURCE_ROOT; };
 		343720F420C0F4A00078DB31 /* dog.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = dog.wav; sourceTree = "<group>"; };
+		343720FC20C11F250078DB31 /* SURequestTask.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SURequestTask.h; sourceTree = "<group>"; };
+		343720FE20C11F250078DB31 /* NSURL+SULoader.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSURL+SULoader.h"; sourceTree = "<group>"; };
+		343720FF20C11F250078DB31 /* NSString+SULoader.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSString+SULoader.h"; sourceTree = "<group>"; };
+		3437210020C11F250078DB31 /* SULoaderCategory.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SULoaderCategory.h; sourceTree = "<group>"; };
+		3437210120C11F250078DB31 /* NSString+SULoader.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSString+SULoader.m"; sourceTree = "<group>"; };
+		3437210220C11F250078DB31 /* NSURL+SULoader.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSURL+SULoader.m"; sourceTree = "<group>"; };
+		3437210320C11F250078DB31 /* SUFileHandle.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SUFileHandle.h; sourceTree = "<group>"; };
+		3437210420C11F250078DB31 /* SUResourceLoader.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SUResourceLoader.m; sourceTree = "<group>"; };
+		3437210520C11F250078DB31 /* SUPlayer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SUPlayer.h; sourceTree = "<group>"; };
+		3437210620C11F250078DB31 /* SURequestTask.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SURequestTask.m; sourceTree = "<group>"; };
+		3437210720C11F250078DB31 /* SUPlayer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SUPlayer.m; sourceTree = "<group>"; };
+		3437210820C11F250078DB31 /* SUResourceLoader.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SUResourceLoader.h; sourceTree = "<group>"; };
+		3437210920C11F250078DB31 /* SUFileHandle.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SUFileHandle.m; sourceTree = "<group>"; };
+		3437211020C11F7C0078DB31 /* AVCachePlayerViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AVCachePlayerViewController.h; sourceTree = "<group>"; };
+		3437211120C11F7C0078DB31 /* AVCachePlayerViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AVCachePlayerViewController.m; sourceTree = "<group>"; };
+		3437211320C1233E0078DB31 /* tree.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = tree.png; sourceTree = "<group>"; };
 		34D5BEBB20BFBBBD00462281 /* iOSPrinciple_AVFoundation.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = iOSPrinciple_AVFoundation.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		34D5BEBE20BFBBBD00462281 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		34D5BEBF20BFBBBD00462281 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
@@ -95,6 +119,44 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		343720FA20C11F0C0078DB31 /* AVCachePlayer */ = {
+			isa = PBXGroup;
+			children = (
+				343720FB20C11F250078DB31 /* AVCPlayer */,
+				3437211020C11F7C0078DB31 /* AVCachePlayerViewController.h */,
+				3437211120C11F7C0078DB31 /* AVCachePlayerViewController.m */,
+			);
+			path = AVCachePlayer;
+			sourceTree = "<group>";
+		};
+		343720FB20C11F250078DB31 /* AVCPlayer */ = {
+			isa = PBXGroup;
+			children = (
+				343720FD20C11F250078DB31 /* Category */,
+				343720FC20C11F250078DB31 /* SURequestTask.h */,
+				3437210320C11F250078DB31 /* SUFileHandle.h */,
+				3437210420C11F250078DB31 /* SUResourceLoader.m */,
+				3437210520C11F250078DB31 /* SUPlayer.h */,
+				3437210620C11F250078DB31 /* SURequestTask.m */,
+				3437210720C11F250078DB31 /* SUPlayer.m */,
+				3437210820C11F250078DB31 /* SUResourceLoader.h */,
+				3437210920C11F250078DB31 /* SUFileHandle.m */,
+			);
+			path = AVCPlayer;
+			sourceTree = "<group>";
+		};
+		343720FD20C11F250078DB31 /* Category */ = {
+			isa = PBXGroup;
+			children = (
+				343720FE20C11F250078DB31 /* NSURL+SULoader.h */,
+				343720FF20C11F250078DB31 /* NSString+SULoader.h */,
+				3437210020C11F250078DB31 /* SULoaderCategory.h */,
+				3437210120C11F250078DB31 /* NSString+SULoader.m */,
+				3437210220C11F250078DB31 /* NSURL+SULoader.m */,
+			);
+			path = Category;
+			sourceTree = "<group>";
+		};
 		34D5BEB220BFBBBC00462281 = {
 			isa = PBXGroup;
 			children = (
@@ -120,6 +182,7 @@
 			children = (
 				34D5BEBE20BFBBBD00462281 /* AppDelegate.h */,
 				34D5BEBF20BFBBBD00462281 /* AppDelegate.m */,
+				343720FA20C11F0C0078DB31 /* AVCachePlayer */,
 				34D5BEFF20BFF33B00462281 /* AVPlayer */,
 				34D5BEFE20BFF2DF00462281 /* AVAudioPlayer */,
 				34D5BEC420BFBBBD00462281 /* Main.storyboard */,
@@ -162,6 +225,7 @@
 		34D5BEF120BFDF4E00462281 /* images */ = {
 			isa = PBXGroup;
 			children = (
+				3437211320C1233E0078DB31 /* tree.png */,
 				3406311820C0E0B100CE7ED8 /* dog.png */,
 				3406311720C0E0B100CE7ED8 /* sea.png */,
 			);
@@ -310,6 +374,7 @@
 				3406311A20C0E0B100CE7ED8 /* dog.png in Resources */,
 				34D5BEFA20BFDF7F00462281 /* sea.wav in Resources */,
 				34D5BECB20BFBBC600462281 /* LaunchScreen.storyboard in Resources */,
+				3437211420C1233E0078DB31 /* tree.png in Resources */,
 				3406311920C0E0B100CE7ED8 /* sea.png in Resources */,
 				343720F520C0F4A00078DB31 /* dog.wav in Resources */,
 				34D5BEC820BFBBC600462281 /* Assets.xcassets in Resources */,
@@ -338,10 +403,17 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				3437210D20C11F250078DB31 /* SURequestTask.m in Sources */,
+				3437210F20C11F250078DB31 /* SUFileHandle.m in Sources */,
 				34D5BEFD20BFE06E00462281 /* AVAudioPlayerViewController.m in Sources */,
+				3437210C20C11F250078DB31 /* SUResourceLoader.m in Sources */,
+				3437210B20C11F250078DB31 /* NSURL+SULoader.m in Sources */,
+				3437210A20C11F250078DB31 /* NSString+SULoader.m in Sources */,
 				34D5BF0520BFF4CD00462281 /* RSMusicModel.m in Sources */,
+				3437210E20C11F250078DB31 /* SUPlayer.m in Sources */,
 				34D5BF0820BFF6E600462281 /* AVPlayerViewController.m in Sources */,
 				34D5BF0220BFF41D00462281 /* RSPlayerTools.m in Sources */,
+				3437211220C11F7C0078DB31 /* AVCachePlayerViewController.m in Sources */,
 				34D5BECE20BFBBC600462281 /* main.m in Sources */,
 				34D5BEC020BFBBBD00462281 /* AppDelegate.m in Sources */,
 			);

@@ -19,7 +19,6 @@
 
 @property (copy , nonatomic) NSMutableArray *songArray;
 
-
 @property (weak, nonatomic) IBOutlet UIImageView *albumImageView;
 @property (weak, nonatomic) IBOutlet UILabel *startTimeLabel;
 @property (weak, nonatomic) IBOutlet UILabel *endTimeLabel;
