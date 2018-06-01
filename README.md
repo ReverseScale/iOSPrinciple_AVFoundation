@@ -424,6 +424,7 @@ AVAudioPlayer 代理方法实现
 在播放完成时响应回调和播放中被系统高优先级事件打断时响应回调。
 
 效果演示：
+
 ![](http://og1yl0w9z.bkt.clouddn.com/18-6-1/91357353.jpg)
 
 3）其他功能
@@ -830,6 +831,10 @@ __weak typeof(self) weakSelf = self;
     [self.player seekToTime:CMTimeMake(time, 1)];
 }
 ```
+
+演示效果：
+
+![](http://og1yl0w9z.bkt.clouddn.com/18-6-1/42935339.jpg)
 
 3）其他用法
 
@@ -1252,6 +1257,10 @@ if (self.delegate && [self.delegate respondsToSelector:@selector(requestTaskDidF
     [self.delegate requestTaskDidFinishLoadingWithCache:self.cache];
 }
 ```
+
+演示效果：
+
+![](http://og1yl0w9z.bkt.clouddn.com/18-6-1/80629024.jpg)
 
 缓存功能优化点：
 
