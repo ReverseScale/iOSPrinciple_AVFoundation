@@ -450,6 +450,8 @@ AVAudioPlayer 代理方法实现
 
 这样音乐在后台就可以播放了！
 
+![](http://og1yl0w9z.bkt.clouddn.com/18-6-1/4393307.jpg)
+
 * 监听播放设备
 
 那么很多播放器都有一个功能，那就是在用户拔掉耳机的时候，暂停播放
@@ -499,6 +501,8 @@ AVAudioPlayer 代理方法实现
 ```
 
 这样，图片就在锁屏界面显示了
+
+![](http://og1yl0w9z.bkt.clouddn.com/18-6-1/58643070.jpg)
 
 要响应锁屏界面上面的三个按钮，需要在一个继承 UIResponder 类里面接收远程控制，添加如下代码，接受远程控制和取消远程控制：
 
@@ -875,6 +879,9 @@ UIControlEventTouchUpInside|UIControlEventTouchCancel|UIControlEventTouchUpOutsi
 ```
 
 * 后台播放
+
+![](http://og1yl0w9z.bkt.clouddn.com/18-6-1/55687163.jpg)
+
 首先 info.plist 文件中设置权限
 
 ```
@@ -893,6 +900,9 @@ AVAudioSession *session = [AVAudioSession sharedInstance];
 ```
 
 * 锁屏信息
+
+![](http://og1yl0w9z.bkt.clouddn.com/18-6-1/37321713.jpg)
+
 Now Playing Center并不需要每一秒都去刷新（设置），它是根据你设置的PlaybackRate来计算进度条展示的进度，比如你PlaybackRate传1，那就是1秒刷新一次进度显示，当然暂停播放的时候它也会自动暂停。
 
 ```objc
