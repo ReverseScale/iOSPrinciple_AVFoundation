@@ -484,10 +484,10 @@ AVAudioPlayer 代理方法实现
 ```objc 
 - (void)setPlayingInfo {
     //    设置后台播放时显示的东西，例如歌曲名字，图片等
-    MPMediaItemArtwork *artWork = [[MPMediaItemArtwork alloc] initWithImage:[UIImage imageNamed:@"吴亦凡.jpg"]];
+    MPMediaItemArtwork *artWork = [[MPMediaItemArtwork alloc] initWithImage:[UIImage imageNamed:@"dog.png"]];
     
-    NSDictionary *dic = @{MPMediaItemPropertyTitle:@"时间煮雨",
-                          MPMediaItemPropertyArtist:@"吴亦凡",
+    NSDictionary *dic = @{MPMediaItemPropertyTitle:@"Dog song",
+                          MPMediaItemPropertyArtist:@"Dog",
                           MPMediaItemPropertyArtwork:artWork
                           };
     [[MPNowPlayingInfoCenter defaultCenter] setNowPlayingInfo:dic];
