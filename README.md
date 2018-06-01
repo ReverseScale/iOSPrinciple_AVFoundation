@@ -1034,9 +1034,9 @@ didCancelLoadingRequest:(AVAssetResourceLoadingRequest *)loadingRequest;
 
 先观察并猜测企鹅音乐的缓存策略（当然它不是用AVPlayer播放）：
 
-![](http://og1yl0w9z.bkt.clouddn.com/18-6-1/71084439.jpg)
-
 1、开始播放，同时开始下载完整的文件，当文件下载完成时，保存到缓存文件夹中；
+
+![](http://og1yl0w9z.bkt.clouddn.com/18-6-1/71084439.jpg)
 
 2、当seek时
 
