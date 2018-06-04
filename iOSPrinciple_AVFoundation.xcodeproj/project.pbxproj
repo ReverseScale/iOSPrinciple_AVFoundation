@@ -20,6 +20,7 @@
 		3437211420C1233E0078DB31 /* tree.png in Resources */ = {isa = PBXBuildFile; fileRef = 3437211320C1233E0078DB31 /* tree.png */; };
 		344ADD9120C4D60200792AC9 /* AVEqualizerPlayerController.m in Sources */ = {isa = PBXBuildFile; fileRef = 344ADD9020C4D60200792AC9 /* AVEqualizerPlayerController.m */; };
 		344ADD9320C4D72100792AC9 /* model.png in Resources */ = {isa = PBXBuildFile; fileRef = 344ADD9220C4D72100792AC9 /* model.png */; };
+		344ADD9F20C53B6000792AC9 /* specialPeople.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 344ADD9E20C53B6000792AC9 /* specialPeople.mp3 */; };
 		34D5BEC020BFBBBD00462281 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 34D5BEBF20BFBBBD00462281 /* AppDelegate.m */; };
 		34D5BEC620BFBBBD00462281 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 34D5BEC420BFBBBD00462281 /* Main.storyboard */; };
 		34D5BEC820BFBBC600462281 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 34D5BEC720BFBBC600462281 /* Assets.xcassets */; };
@@ -80,6 +81,7 @@
 		344ADD8F20C4D60200792AC9 /* AVEqualizerPlayerController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AVEqualizerPlayerController.h; sourceTree = "<group>"; };
 		344ADD9020C4D60200792AC9 /* AVEqualizerPlayerController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AVEqualizerPlayerController.m; sourceTree = "<group>"; };
 		344ADD9220C4D72100792AC9 /* model.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = model.png; sourceTree = "<group>"; };
+		344ADD9E20C53B6000792AC9 /* specialPeople.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = specialPeople.mp3; sourceTree = "<group>"; };
 		34D5BEBB20BFBBBD00462281 /* iOSPrinciple_AVFoundation.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = iOSPrinciple_AVFoundation.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		34D5BEBE20BFBBBD00462281 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		34D5BEBF20BFBBBD00462281 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
@@ -268,6 +270,7 @@
 		34D5BEF220BFDF6300462281 /* sounds */ = {
 			isa = PBXGroup;
 			children = (
+				344ADD9E20C53B6000792AC9 /* specialPeople.mp3 */,
 				343720F420C0F4A00078DB31 /* dog.wav */,
 				34D5BEF820BFDF7F00462281 /* sea.wav */,
 			);
@@ -437,6 +440,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				3406311A20C0E0B100CE7ED8 /* dog.png in Resources */,
+				344ADD9F20C53B6000792AC9 /* specialPeople.mp3 in Resources */,
 				34D5BEFA20BFDF7F00462281 /* sea.wav in Resources */,
 				344ADD9320C4D72100792AC9 /* model.png in Resources */,
 				34D5BECB20BFBBC600462281 /* LaunchScreen.storyboard in Resources */,
