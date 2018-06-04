@@ -18,6 +18,8 @@
 		3437210F20C11F250078DB31 /* SUFileHandle.m in Sources */ = {isa = PBXBuildFile; fileRef = 3437210920C11F250078DB31 /* SUFileHandle.m */; };
 		3437211220C11F7C0078DB31 /* AVCachePlayerViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3437211120C11F7C0078DB31 /* AVCachePlayerViewController.m */; };
 		3437211420C1233E0078DB31 /* tree.png in Resources */ = {isa = PBXBuildFile; fileRef = 3437211320C1233E0078DB31 /* tree.png */; };
+		344ADD9120C4D60200792AC9 /* AVEqualizerPlayerController.m in Sources */ = {isa = PBXBuildFile; fileRef = 344ADD9020C4D60200792AC9 /* AVEqualizerPlayerController.m */; };
+		344ADD9320C4D72100792AC9 /* model.png in Resources */ = {isa = PBXBuildFile; fileRef = 344ADD9220C4D72100792AC9 /* model.png */; };
 		34D5BEC020BFBBBD00462281 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 34D5BEBF20BFBBBD00462281 /* AppDelegate.m */; };
 		34D5BEC620BFBBBD00462281 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 34D5BEC420BFBBBD00462281 /* Main.storyboard */; };
 		34D5BEC820BFBBC600462281 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 34D5BEC720BFBBC600462281 /* Assets.xcassets */; };
@@ -30,6 +32,9 @@
 		34D5BF0220BFF41D00462281 /* RSPlayerTools.m in Sources */ = {isa = PBXBuildFile; fileRef = 34D5BF0120BFF41D00462281 /* RSPlayerTools.m */; };
 		34D5BF0520BFF4CD00462281 /* RSMusicModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 34D5BF0420BFF4CD00462281 /* RSMusicModel.m */; };
 		34D5BF0820BFF6E600462281 /* AVPlayerViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 34D5BF0720BFF6E600462281 /* AVPlayerViewController.m */; };
+		3CD9D5386E1A687FB0B97133 /* libPods-iOSPrinciple_AVFoundationTests.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 874EF896534C7035F0806AB1 /* libPods-iOSPrinciple_AVFoundationTests.a */; };
+		654A3CE0A74C127A52388658 /* libPods-iOSPrinciple_AVFoundationUITests.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 12F06F613A45429D9274F00E /* libPods-iOSPrinciple_AVFoundationUITests.a */; };
+		8EEC6C4E84CB96B78718B799 /* libPods-iOSPrinciple_AVFoundation.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 3C966C7083810B15C8772A02 /* libPods-iOSPrinciple_AVFoundation.a */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -50,6 +55,9 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		1247A7F327AA27A4748DA0A0 /* Pods-iOSPrinciple_AVFoundationUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-iOSPrinciple_AVFoundationUITests.release.xcconfig"; path = "Pods/Target Support Files/Pods-iOSPrinciple_AVFoundationUITests/Pods-iOSPrinciple_AVFoundationUITests.release.xcconfig"; sourceTree = "<group>"; };
+		12F06F613A45429D9274F00E /* libPods-iOSPrinciple_AVFoundationUITests.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-iOSPrinciple_AVFoundationUITests.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		15DE7EA105F31DA9A6296AF0 /* Pods-iOSPrinciple_AVFoundationTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-iOSPrinciple_AVFoundationTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-iOSPrinciple_AVFoundationTests/Pods-iOSPrinciple_AVFoundationTests.release.xcconfig"; sourceTree = "<group>"; };
 		3406311720C0E0B100CE7ED8 /* sea.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = sea.png; path = iOSPrinciple_AVFoundation/Resource/images/sea.png; sourceTree = SOURCE_ROOT; };
 		3406311820C0E0B100CE7ED8 /* dog.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = dog.png; path = iOSPrinciple_AVFoundation/Resource/images/dog.png; sourceTree = SOURCE_ROOT; };
 		343720F420C0F4A00078DB31 /* dog.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = dog.wav; sourceTree = "<group>"; };
@@ -69,6 +77,9 @@
 		3437211020C11F7C0078DB31 /* AVCachePlayerViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AVCachePlayerViewController.h; sourceTree = "<group>"; };
 		3437211120C11F7C0078DB31 /* AVCachePlayerViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AVCachePlayerViewController.m; sourceTree = "<group>"; };
 		3437211320C1233E0078DB31 /* tree.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = tree.png; sourceTree = "<group>"; };
+		344ADD8F20C4D60200792AC9 /* AVEqualizerPlayerController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AVEqualizerPlayerController.h; sourceTree = "<group>"; };
+		344ADD9020C4D60200792AC9 /* AVEqualizerPlayerController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AVEqualizerPlayerController.m; sourceTree = "<group>"; };
+		344ADD9220C4D72100792AC9 /* model.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = model.png; sourceTree = "<group>"; };
 		34D5BEBB20BFBBBD00462281 /* iOSPrinciple_AVFoundation.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = iOSPrinciple_AVFoundation.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		34D5BEBE20BFBBBD00462281 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		34D5BEBF20BFBBBD00462281 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
@@ -92,6 +103,12 @@
 		34D5BF0420BFF4CD00462281 /* RSMusicModel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = RSMusicModel.m; sourceTree = "<group>"; };
 		34D5BF0620BFF6E600462281 /* AVPlayerViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AVPlayerViewController.h; sourceTree = "<group>"; };
 		34D5BF0720BFF6E600462281 /* AVPlayerViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AVPlayerViewController.m; sourceTree = "<group>"; };
+		3C966C7083810B15C8772A02 /* libPods-iOSPrinciple_AVFoundation.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-iOSPrinciple_AVFoundation.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		7868855C9806E5CB6F2075DA /* Pods-iOSPrinciple_AVFoundationUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-iOSPrinciple_AVFoundationUITests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-iOSPrinciple_AVFoundationUITests/Pods-iOSPrinciple_AVFoundationUITests.debug.xcconfig"; sourceTree = "<group>"; };
+		86225F83C238272D84D30BE1 /* Pods-iOSPrinciple_AVFoundation.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-iOSPrinciple_AVFoundation.debug.xcconfig"; path = "Pods/Target Support Files/Pods-iOSPrinciple_AVFoundation/Pods-iOSPrinciple_AVFoundation.debug.xcconfig"; sourceTree = "<group>"; };
+		874EF896534C7035F0806AB1 /* libPods-iOSPrinciple_AVFoundationTests.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-iOSPrinciple_AVFoundationTests.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		C6B7705879FAD14598D345B1 /* Pods-iOSPrinciple_AVFoundation.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-iOSPrinciple_AVFoundation.release.xcconfig"; path = "Pods/Target Support Files/Pods-iOSPrinciple_AVFoundation/Pods-iOSPrinciple_AVFoundation.release.xcconfig"; sourceTree = "<group>"; };
+		DE4257D8BBB857698404B8A1 /* Pods-iOSPrinciple_AVFoundationTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-iOSPrinciple_AVFoundationTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-iOSPrinciple_AVFoundationTests/Pods-iOSPrinciple_AVFoundationTests.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -99,6 +116,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				8EEC6C4E84CB96B78718B799 /* libPods-iOSPrinciple_AVFoundation.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -106,6 +124,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				3CD9D5386E1A687FB0B97133 /* libPods-iOSPrinciple_AVFoundationTests.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -113,6 +132,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				654A3CE0A74C127A52388658 /* libPods-iOSPrinciple_AVFoundationUITests.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -157,6 +177,15 @@
 			path = Category;
 			sourceTree = "<group>";
 		};
+		344ADD8E20C4D5E800792AC9 /* AVCachePlayerEqualizer */ = {
+			isa = PBXGroup;
+			children = (
+				344ADD8F20C4D60200792AC9 /* AVEqualizerPlayerController.h */,
+				344ADD9020C4D60200792AC9 /* AVEqualizerPlayerController.m */,
+			);
+			path = AVCachePlayerEqualizer;
+			sourceTree = "<group>";
+		};
 		34D5BEB220BFBBBC00462281 = {
 			isa = PBXGroup;
 			children = (
@@ -164,6 +193,8 @@
 				34D5BED620BFBBC600462281 /* iOSPrinciple_AVFoundationTests */,
 				34D5BEE120BFBBC600462281 /* iOSPrinciple_AVFoundationUITests */,
 				34D5BEBC20BFBBBD00462281 /* Products */,
+				B03E2C1299ADDACD864654FB /* Pods */,
+				81819888894F0DD45D2C1786 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -182,11 +213,12 @@
 			children = (
 				34D5BEBE20BFBBBD00462281 /* AppDelegate.h */,
 				34D5BEBF20BFBBBD00462281 /* AppDelegate.m */,
+				344ADD8E20C4D5E800792AC9 /* AVCachePlayerEqualizer */,
 				343720FA20C11F0C0078DB31 /* AVCachePlayer */,
 				34D5BEFF20BFF33B00462281 /* AVPlayer */,
 				34D5BEFE20BFF2DF00462281 /* AVAudioPlayer */,
-				34D5BEC420BFBBBD00462281 /* Main.storyboard */,
 				34D5BEF020BFBC3000462281 /* Resource */,
+				34D5BEC420BFBBBD00462281 /* Main.storyboard */,
 				34D5BEC720BFBBC600462281 /* Assets.xcassets */,
 				34D5BEC920BFBBC600462281 /* LaunchScreen.storyboard */,
 				34D5BECC20BFBBC600462281 /* Info.plist */,
@@ -225,6 +257,7 @@
 		34D5BEF120BFDF4E00462281 /* images */ = {
 			isa = PBXGroup;
 			children = (
+				344ADD9220C4D72100792AC9 /* model.png */,
 				3437211320C1233E0078DB31 /* tree.png */,
 				3406311820C0E0B100CE7ED8 /* dog.png */,
 				3406311720C0E0B100CE7ED8 /* sea.png */,
@@ -263,6 +296,29 @@
 			path = AVPlayer;
 			sourceTree = "<group>";
 		};
+		81819888894F0DD45D2C1786 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				3C966C7083810B15C8772A02 /* libPods-iOSPrinciple_AVFoundation.a */,
+				874EF896534C7035F0806AB1 /* libPods-iOSPrinciple_AVFoundationTests.a */,
+				12F06F613A45429D9274F00E /* libPods-iOSPrinciple_AVFoundationUITests.a */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		B03E2C1299ADDACD864654FB /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				86225F83C238272D84D30BE1 /* Pods-iOSPrinciple_AVFoundation.debug.xcconfig */,
+				C6B7705879FAD14598D345B1 /* Pods-iOSPrinciple_AVFoundation.release.xcconfig */,
+				DE4257D8BBB857698404B8A1 /* Pods-iOSPrinciple_AVFoundationTests.debug.xcconfig */,
+				15DE7EA105F31DA9A6296AF0 /* Pods-iOSPrinciple_AVFoundationTests.release.xcconfig */,
+				7868855C9806E5CB6F2075DA /* Pods-iOSPrinciple_AVFoundationUITests.debug.xcconfig */,
+				1247A7F327AA27A4748DA0A0 /* Pods-iOSPrinciple_AVFoundationUITests.release.xcconfig */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -270,9 +326,12 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 34D5BEE720BFBBC600462281 /* Build configuration list for PBXNativeTarget "iOSPrinciple_AVFoundation" */;
 			buildPhases = (
+				33B1A9B9A994C16B5C793BA0 /* [CP] Check Pods Manifest.lock */,
 				34D5BEB720BFBBBD00462281 /* Sources */,
 				34D5BEB820BFBBBD00462281 /* Frameworks */,
 				34D5BEB920BFBBBD00462281 /* Resources */,
+				E4D8F42713333C694057934A /* [CP] Embed Pods Frameworks */,
+				2B0FA0470F13028FDFCB9AF8 /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -287,9 +346,12 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 34D5BEEA20BFBBC600462281 /* Build configuration list for PBXNativeTarget "iOSPrinciple_AVFoundationTests" */;
 			buildPhases = (
+				3E49D7A89E074AE0747F0B8E /* [CP] Check Pods Manifest.lock */,
 				34D5BECF20BFBBC600462281 /* Sources */,
 				34D5BED020BFBBC600462281 /* Frameworks */,
 				34D5BED120BFBBC600462281 /* Resources */,
+				BAFEF5E386D3FBFA9FA2CAC0 /* [CP] Embed Pods Frameworks */,
+				3F45EDA06B8554A5BAF49264 /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -305,9 +367,12 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 34D5BEED20BFBBC600462281 /* Build configuration list for PBXNativeTarget "iOSPrinciple_AVFoundationUITests" */;
 			buildPhases = (
+				2926D7D9736752C01AA3049C /* [CP] Check Pods Manifest.lock */,
 				34D5BEDA20BFBBC600462281 /* Sources */,
 				34D5BEDB20BFBBC600462281 /* Frameworks */,
 				34D5BEDC20BFBBC600462281 /* Resources */,
+				942111FAAEB05240BDF953AB /* [CP] Embed Pods Frameworks */,
+				6C787C180A8BFED5FB5CCEFD /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -373,6 +438,7 @@
 			files = (
 				3406311A20C0E0B100CE7ED8 /* dog.png in Resources */,
 				34D5BEFA20BFDF7F00462281 /* sea.wav in Resources */,
+				344ADD9320C4D72100792AC9 /* model.png in Resources */,
 				34D5BECB20BFBBC600462281 /* LaunchScreen.storyboard in Resources */,
 				3437211420C1233E0078DB31 /* tree.png in Resources */,
 				3406311920C0E0B100CE7ED8 /* sea.png in Resources */,
@@ -398,6 +464,153 @@
 		};
 /* End PBXResourcesBuildPhase section */
 
+/* Begin PBXShellScriptBuildPhase section */
+		2926D7D9736752C01AA3049C /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-iOSPrinciple_AVFoundationUITests-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		2B0FA0470F13028FDFCB9AF8 /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-iOSPrinciple_AVFoundation/Pods-iOSPrinciple_AVFoundation-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		33B1A9B9A994C16B5C793BA0 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-iOSPrinciple_AVFoundation-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		3E49D7A89E074AE0747F0B8E /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-iOSPrinciple_AVFoundationTests-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		3F45EDA06B8554A5BAF49264 /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-iOSPrinciple_AVFoundationTests/Pods-iOSPrinciple_AVFoundationTests-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		6C787C180A8BFED5FB5CCEFD /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-iOSPrinciple_AVFoundationUITests/Pods-iOSPrinciple_AVFoundationUITests-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		942111FAAEB05240BDF953AB /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-iOSPrinciple_AVFoundationUITests/Pods-iOSPrinciple_AVFoundationUITests-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		BAFEF5E386D3FBFA9FA2CAC0 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-iOSPrinciple_AVFoundationTests/Pods-iOSPrinciple_AVFoundationTests-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		E4D8F42713333C694057934A /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-iOSPrinciple_AVFoundation/Pods-iOSPrinciple_AVFoundation-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
 /* Begin PBXSourcesBuildPhase section */
 		34D5BEB720BFBBBD00462281 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
@@ -410,6 +623,7 @@
 				3437210B20C11F250078DB31 /* NSURL+SULoader.m in Sources */,
 				3437210A20C11F250078DB31 /* NSString+SULoader.m in Sources */,
 				34D5BF0520BFF4CD00462281 /* RSMusicModel.m in Sources */,
+				344ADD9120C4D60200792AC9 /* AVEqualizerPlayerController.m in Sources */,
 				3437210E20C11F250078DB31 /* SUPlayer.m in Sources */,
 				34D5BF0820BFF6E600462281 /* AVPlayerViewController.m in Sources */,
 				34D5BF0220BFF41D00462281 /* RSPlayerTools.m in Sources */,
@@ -582,6 +796,7 @@
 		};
 		34D5BEE820BFBBC600462281 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 86225F83C238272D84D30BE1 /* Pods-iOSPrinciple_AVFoundation.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
@@ -599,6 +814,7 @@
 		};
 		34D5BEE920BFBBC600462281 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = C6B7705879FAD14598D345B1 /* Pods-iOSPrinciple_AVFoundation.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
@@ -616,6 +832,7 @@
 		};
 		34D5BEEB20BFBBC600462281 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = DE4257D8BBB857698404B8A1 /* Pods-iOSPrinciple_AVFoundationTests.debug.xcconfig */;
 			buildSettings = {
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				CODE_SIGN_STYLE = Automatic;
@@ -634,6 +851,7 @@
 		};
 		34D5BEEC20BFBBC600462281 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 15DE7EA105F31DA9A6296AF0 /* Pods-iOSPrinciple_AVFoundationTests.release.xcconfig */;
 			buildSettings = {
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				CODE_SIGN_STYLE = Automatic;
@@ -652,6 +870,7 @@
 		};
 		34D5BEEE20BFBBC600462281 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 7868855C9806E5CB6F2075DA /* Pods-iOSPrinciple_AVFoundationUITests.debug.xcconfig */;
 			buildSettings = {
 				CODE_SIGN_STYLE = Automatic;
 				INFOPLIST_FILE = iOSPrinciple_AVFoundationUITests/Info.plist;
@@ -669,6 +888,7 @@
 		};
 		34D5BEEF20BFBBC600462281 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 1247A7F327AA27A4748DA0A0 /* Pods-iOSPrinciple_AVFoundationUITests.release.xcconfig */;
 			buildSettings = {
 				CODE_SIGN_STYLE = Automatic;
 				INFOPLIST_FILE = iOSPrinciple_AVFoundationUITests/Info.plist;
