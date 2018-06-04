@@ -23,7 +23,7 @@ AVFoundation是苹果在iOS和OS X系统中用于处理基于时间的媒体数�
 
 ②空间采样：一般用在可视化内容的数字化过程中,对一幅图片在一定分辨率下捕捉其亮度和色度.
 
-## 音频处理部分
+## 音频篇
 
 现实生活中，我们听到的声音都是时间连续的，我们称为这种信号叫模拟信号。模拟信号需要进行数字化以后才能在计算机中使用。数字化的过程如下：
 
@@ -1280,6 +1280,188 @@ if (self.delegate && [self.delegate respondsToSelector:@selector(requestTaskDidF
 
 * 3.缓存文件的命名处理，如果缓存文件没有后缀（如.mp4），可能会导致播放失败；
 
+### TheAmazingAudioEngine 实现音效模块
+
+TheAmazingAudioEngine就是基于AudioUnit框架、AudioToolBox框架、AVFoundation框架的封装，使其更方便使用。
+
+#### 播放功能
+和官方AVAudioPalyer以及AVAudioEngine都比较类似，拿到文件路径、或者音频buffer，调用相关方法播放即可，这里举例文件的播放。
+
+* 创建AEAudioController对象；
+* 拿到音频的路径（一个NSURL对象）；
+* 根据音频路径创建AEAudioFilePlayer对象；
+* 通过AEAudioController的addChannels:方法将AEAudioFilePlayer对象add到AEAudioController对象中即可。
+
+范例如下：
+
+```objc
+NSString *path = [[NSBundle mainBundle] pathForResource:@"specialPeople" ofType:@"mp3"];
+self.player = [[AEAudioFilePlayer alloc] initWithURL:[NSURL fileURLWithPath:path] error:&error];
+[self.audioController addChannels:@[self.player]];
+
+```
+
+播放本地音频
+
+```objc
+// 歌曲名和后缀名
+static NSString *audioFileName   = @"specialPeople";
+static NSString *audioFileFormat = @"mp3";
+
+NSURL *songURL = [[NSBundle mainBundle] URLForResource:audioFileName
+withExtension:audioFileFormat];
+```
+
+如果是想拿手机中的歌曲，则通过MPMediaPickerController的委托方法mediaPicker:didPickMediaItems:方法获得，如下：
+
+```objc
+#pragma mark - MPMediaPickerControllerDelegate
+- (void)mediaPicker:(MPMediaPickerController *)mediaPicker didPickMediaItems:(MPMediaItemCollection *)mediaItemCollection {
+
+// 我这里要播放两首歌,所以有两个MPMediaPickerController对象,这里作一个判断
+if (mediaPicker == _mediaCH1PickerController) {
+
+// mediaItemCollection.representativeItem.assetURL这一句即可拿到使用者选择歌曲的URL
+// 备注:这里已经将播放歌曲的方法playNewSongCH1:封装到自定义的engine类中
+[[HNMCManager shareManager].engine playNewSongCH1:mediaItemCollection.representativeItem.assetURL];
+} 
+else {
+[[HNMCManager shareManager].engine playNewSongCH2:mediaItemCollection.representativeItem.assetURL];
+}
+
+[self dismissViewControllerAnimated:YES completion:nil];
+}
+```
+
+#### 音效的实现
+
+所有音效都是基于AEAudioUnitFilter类实现的。
+
+TheAmazingAudioEngine上的音效比苹果官方的AVAudioEngine丰富且容易实现。
+
+总的步骤：
+
+创建AEAudioUnitFilter或其子类对象
+用AEAudioController的addFilter:方法将Filter对象add到AEAudioController对象中
+设置相关属性值，实现音效的控制
+
+1）实现高通音效
+
+该框架有现成的高通音效类：
+
+```objc
+#pragma mark 高通音效
+- (void)setupFilterHighPass:(double)cutoffFrequency {
+// 创建并添加AEAudioUnitFilter实例
+[self addHighpassFilter];
+
+// 设置相关属性值，达到音效的控制
+_highPassFilter.cutoffFrequency = cutoffFrequency;
+}
+
+- (void)addHighpassFilter {
+// _highPassFilter是AEHighPassFilter类的实例
+// AEHighPassFilter是AEAudioUnitFilter的子类
+if (!_highPassFilter) {
+_highPassFilter = [[AEHighPassFilter alloc] init];
+[_audioController addFilter:_highPassFilter];
+} else {
+if ( ![_audioController.filters containsObject:_highPassFilter] ) {
+[_audioController addFilter:_highPassFilter];
+}
+}
+}
+```
+
+#### 实现EQ调整
+
+因为本来对音频相关领域的概念、知识不太了解，实现EQ调整还颇费了一番周折。需要实现的EQ调整类似下图：
+
+![](http://og1yl0w9z.bkt.clouddn.com/18-6-4/8213413.jpg)
+
+可以通过AEParametricEqFilter类实现，该类也是AEAudioUnitFilter的子类，要实现10段EQ值的调整，就要创建10个AEParametricEqFilter对象，给centerFrequency属性赋值20Hz-20000Hz之间的值(取决于你要调整哪个频率的声音)。而具体音效调整，则是调整增益值(通过gain属性)，值范围：-20dB to 20dB。
+
+```objc
+#pragma mark EQ音效
+// 创建10个AEParametricEqFilter对象
+- (void)creatEqFliters {
+_eq20HzFilter  = [[AEParametricEqFilter alloc] init];
+_eq50HzFilter  = [[AEParametricEqFilter alloc] init];
+_eq100HzFilter = [[AEParametricEqFilter alloc] init];
+_eq200HzFilter = [[AEParametricEqFilter alloc] init];
+_eq500HzFilter = [[AEParametricEqFilter alloc] init];
+_eq1kFilter    = [[AEParametricEqFilter alloc] init];
+_eq2kFilter    = [[AEParametricEqFilter alloc] init];
+_eq5kFilter    = [[AEParametricEqFilter alloc] init];
+_eq10kFilter   = [[AEParametricEqFilter alloc] init];
+_eq20kFilter   = [[AEParametricEqFilter alloc] init];
+_eqFilters     = @[_eq20HzFilter, _eq50HzFilter, _eq100HzFilter, _eq200HzFilter, _eq500HzFilter, _eq1kFilter, _eq2kFilter, _eq5kFilter, _eq10kFilter, _eq20kFilter];
+}
+
+- (void)setupFilterEq:(NSInteger)eqType value:(double)gain {
+switch (eqType) {
+case EQ_20Hz: {
+// 设置需要调整的频率，并将传入的增益值gain赋值给gain属性，达到音效调整效果
+[self setupEqFilter:_eq20HzFilter centerFrequency:20 gain:gain];
+break;
+}
+case EQ_50Hz: {
+[self setupEqFilter:_eq50HzFilter centerFrequency:50 gain:gain];
+break;
+}
+case EQ_100Hz: {
+[self setupEqFilter:_eq100HzFilter centerFrequency:100 gain:gain];
+break;
+}
+case EQ_200Hz: {
+[self setupEqFilter:_eq200HzFilter centerFrequency:200 gain:gain];
+break;
+}
+case EQ_500Hz: {
+[self setupEqFilter:_eq500HzFilter centerFrequency:500 gain:gain];
+break;
+}
+case EQ_1K: {
+[self setupEqFilter:_eq1kFilter centerFrequency:1000 gain:gain];
+break;
+}
+case EQ_2K: {
+[self setupEqFilter:_eq2kFilter centerFrequency:2000 gain:gain];
+break;
+}
+case EQ_5K: {
+[self setupEqFilter:_eq5kFilter centerFrequency:5000 gain:gain];
+break;
+}
+case EQ_10K: {
+[self setupEqFilter:_eq10kFilter centerFrequency:10000 gain:gain];
+break;
+}
+case EQ_20K: {
+[self setupEqFilter:_eq20kFilter centerFrequency:20000 gain:gain];
+break;
+}
+}
+}
+
+- (void)setupEqFilter:(AEParametricEqFilter *)eqFilter centerFrequency:(double)centerFrequency gain:(double)gain {
+if ( ![_audioController.filters containsObject:eqFilter] ) {
+for (AEParametricEqFilter *existEqFilter in _eqFilters) {
+if (eqFilter == existEqFilter) {
+[_audioController addFilter:eqFilter];
+break;
+}
+}
+}
+
+eqFilter.centerFrequency = centerFrequency;
+eqFilter.qFactor         = 1.0;
+eqFilter.gain            = gain;
+}
+```
+
+以上就是应用TheAmazingAudioEngine框架进行音频播放、录制、音效实现的一次简单实践分享。
+
 ### 发掘 AVPlayer 的潜力
 
 音频播放的实现级别：
@@ -1290,4 +1472,4 @@ if (self.delegate && [self.delegate respondsToSelector:@selector(requestTaskDidF
 
 未完待续，AVFoundation 体系太大，慢慢整理 🤣
 
-> 以上文章整理自：https://www.jianshu.com/p/589999e53461、https://blog.csdn.net/zahuopuboss/article/details/54862749、https://blog.csdn.net/feng2qing/article/details/67655175、https://blog.csdn.net/dolacmeng/article/details/77430108、https://www.jianshu.com/p/746cec2c3759、http://www.cocoachina.com/ios/20160726/17194.html、https://www.jianshu.com/p/c48195126040
+> 以上文章整理自：https://www.jianshu.com/p/589999e53461、https://blog.csdn.net/zahuopuboss/article/details/54862749、https://blog.csdn.net/feng2qing/article/details/67655175、https://blog.csdn.net/dolacmeng/article/details/77430108、https://www.jianshu.com/p/746cec2c3759、http://www.cocoachina.com/ios/20160726/17194.html、https://www.jianshu.com/p/c48195126040、https://www.jianshu.com/p/a7d5f43a84fb
