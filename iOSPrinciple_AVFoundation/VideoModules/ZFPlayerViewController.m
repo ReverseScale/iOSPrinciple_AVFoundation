@@ -23,11 +23,29 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
+    [self setupHTTPCache];
+}
+
+- (void)setupHTTPCache {
+    [KTVHTTPCache logSetConsoleLogEnable:YES];
+    NSError * error;
+    [KTVHTTPCache proxyStart:&error];
+    if (error) {
+        NSLog(@"Proxy Start Failure, %@", error);
+    } else {
+        NSLog(@"Proxy Start Success");
+    }
+    
+    [KTVHTTPCache cacheSetURLFilterForArchive:^NSString *(NSString *originalURLString) {
+        NSLog(@"URL Filter reviced URL : %@", originalURLString);
+        return originalURLString;
+    }];
 }
 
 - (void)viewWillLayoutSubviews {
     [super viewWillLayoutSubviews];
 }
+
 
 - (IBAction)playClick:(UIButton *)sender {
     [self.controlView resetControlView];
@@ -48,7 +66,11 @@
             [self.player stop];
         });
     };
+    
     NSString *URLString = [@"http://tb-video.bdstatic.com/tieba-smallvideo-transcode/3612804_e50cb68f52adb3c4c3f6135c0edcc7b0_3.mp4" stringByAddingPercentEncodingWithAllowedCharacters:[NSCharacterSet URLQueryAllowedCharacterSet]];
+    
+//    NSString *URLString = [@"http://aliuwmp3.changba.com/userdata/video/45F6BD5E445E4C029C33DC5901307461.mp4" stringByAddingPercentEncodingWithAllowedCharacters:[NSCharacterSet URLQueryAllowedCharacterSet]];
+    
     NSString *proxyURLString = [KTVHTTPCache proxyURLStringWithOriginalURLString:URLString];
     playerManager.assetURL = [NSURL URLWithString:proxyURLString];
 }

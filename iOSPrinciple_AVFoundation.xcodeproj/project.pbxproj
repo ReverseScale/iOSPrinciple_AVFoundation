@@ -53,6 +53,9 @@
 		344ADE6720C656BE00792AC9 /* DouyinPlayerViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 344ADE6620C656BE00792AC9 /* DouyinPlayerViewController.m */; };
 		344ADE6C20C6575600792AC9 /* ZFDouYinCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 344ADE6820C6575500792AC9 /* ZFDouYinCell.m */; };
 		344ADE6D20C6575600792AC9 /* ZFDouYinControlView.m in Sources */ = {isa = PBXBuildFile; fileRef = 344ADE6B20C6575600792AC9 /* ZFDouYinControlView.m */; };
+		344ADE7920C6658000792AC9 /* CacheItemView.m in Sources */ = {isa = PBXBuildFile; fileRef = 344ADE7520C6657F00792AC9 /* CacheItemView.m */; };
+		344ADE7A20C6658000792AC9 /* CacheItemZoneCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 344ADE7720C6658000792AC9 /* CacheItemZoneCell.m */; };
+		344ADE7B20C6658000792AC9 /* CacheViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 344ADE7820C6658000792AC9 /* CacheViewController.m */; };
 		34D5BEC020BFBBBD00462281 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 34D5BEBF20BFBBBD00462281 /* AppDelegate.m */; };
 		34D5BEC620BFBBBD00462281 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 34D5BEC420BFBBBD00462281 /* Main.storyboard */; };
 		34D5BEC820BFBBC600462281 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 34D5BEC720BFBBC600462281 /* Assets.xcassets */; };
@@ -179,6 +182,12 @@
 		344ADE6920C6575600792AC9 /* ZFDouYinCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ZFDouYinCell.h; sourceTree = "<group>"; };
 		344ADE6A20C6575600792AC9 /* ZFDouYinControlView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ZFDouYinControlView.h; sourceTree = "<group>"; };
 		344ADE6B20C6575600792AC9 /* ZFDouYinControlView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ZFDouYinControlView.m; sourceTree = "<group>"; };
+		344ADE7320C6657E00792AC9 /* CacheItemView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CacheItemView.h; sourceTree = "<group>"; };
+		344ADE7420C6657F00792AC9 /* CacheViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CacheViewController.h; sourceTree = "<group>"; };
+		344ADE7520C6657F00792AC9 /* CacheItemView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CacheItemView.m; sourceTree = "<group>"; };
+		344ADE7620C6657F00792AC9 /* CacheItemZoneCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CacheItemZoneCell.h; sourceTree = "<group>"; };
+		344ADE7720C6658000792AC9 /* CacheItemZoneCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CacheItemZoneCell.m; sourceTree = "<group>"; };
+		344ADE7820C6658000792AC9 /* CacheViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CacheViewController.m; sourceTree = "<group>"; };
 		34D5BEBB20BFBBBD00462281 /* iOSPrinciple_AVFoundation.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = iOSPrinciple_AVFoundation.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		34D5BEBE20BFBBBD00462281 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		34D5BEBF20BFBBBD00462281 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
@@ -309,6 +318,8 @@
 				344ADDE120C6396100792AC9 /* ZFPlayerTableViewController.m */,
 				344ADE6520C656BE00792AC9 /* DouyinPlayerViewController.h */,
 				344ADE6620C656BE00792AC9 /* DouyinPlayerViewController.m */,
+				344ADE7420C6657F00792AC9 /* CacheViewController.h */,
+				344ADE7820C6658000792AC9 /* CacheViewController.m */,
 			);
 			path = VideoModules;
 			sourceTree = "<group>";
@@ -316,6 +327,10 @@
 		344ADDE320C63A4100792AC9 /* View */ = {
 			isa = PBXGroup;
 			children = (
+				344ADE7320C6657E00792AC9 /* CacheItemView.h */,
+				344ADE7520C6657F00792AC9 /* CacheItemView.m */,
+				344ADE7620C6657F00792AC9 /* CacheItemZoneCell.h */,
+				344ADE7720C6658000792AC9 /* CacheItemZoneCell.m */,
 				344ADDE620C63A5A00792AC9 /* ZFTableViewCell.h */,
 				344ADDE520C63A5A00792AC9 /* ZFTableViewCell.m */,
 				344ADE6920C6575600792AC9 /* ZFDouYinCell.h */,
@@ -864,17 +879,20 @@
 				344ADE6D20C6575600792AC9 /* ZFDouYinControlView.m in Sources */,
 				344ADE4C20C63F5300792AC9 /* ZFPlayerGestureControl.m in Sources */,
 				3437210D20C11F250078DB31 /* SURequestTask.m in Sources */,
+				344ADE7B20C6658000792AC9 /* CacheViewController.m in Sources */,
 				344ADE5120C63F5300792AC9 /* ZFFloatView.m in Sources */,
 				3437210F20C11F250078DB31 /* SUFileHandle.m in Sources */,
 				344ADE4D20C63F5300792AC9 /* ZFPlayerController.m in Sources */,
 				34D5BEFD20BFE06E00462281 /* AVAudioPlayerViewController.m in Sources */,
 				344ADE5020C63F5300792AC9 /* ZFPlayerNotification.m in Sources */,
 				344ADE5C20C63F5300792AC9 /* ZFPlayerControlView.m in Sources */,
+				344ADE7A20C6658000792AC9 /* CacheItemZoneCell.m in Sources */,
 				3437210C20C11F250078DB31 /* SUResourceLoader.m in Sources */,
 				344ADE5F20C63F5300792AC9 /* ZFPortraitControlView.m in Sources */,
 				3437210B20C11F250078DB31 /* NSURL+SULoader.m in Sources */,
 				344ADE6420C64F6B00792AC9 /* ZFPlayerViewController.m in Sources */,
 				3437210A20C11F250078DB31 /* NSString+SULoader.m in Sources */,
+				344ADE7920C6658000792AC9 /* CacheItemView.m in Sources */,
 				344ADE5920C63F5300792AC9 /* ZFLandScapeControlView.m in Sources */,
 				344ADE5B20C63F5300792AC9 /* ZFSliderView.m in Sources */,
 				344ADDEB20C63A6600792AC9 /* ZFTableData.m in Sources */,
