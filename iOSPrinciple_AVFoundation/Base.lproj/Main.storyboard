@@ -32,10 +32,10 @@
         <scene sceneID="ibG-fX-Csz">
             <objects>
                 <tableViewController id="fI9-3B-Pum" sceneMemberID="viewController">
-                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="static" style="plain" separatorStyle="default" rowHeight="60" sectionHeaderHeight="28" sectionFooterHeight="28" id="FfY-n1-9wA">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="static" style="grouped" separatorStyle="default" rowHeight="60" sectionHeaderHeight="18" sectionFooterHeight="18" id="FfY-n1-9wA">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <color key="backgroundColor" red="0.94892948870000005" green="0.94908481840000003" blue="0.94889634850000004" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <color key="backgroundColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
                         <view key="tableHeaderView" contentMode="scaleToFill" id="lay-1F-IYG">
                             <rect key="frame" x="0.0" y="0.0" width="375" height="157"/>
                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
@@ -54,7 +54,7 @@
                             </constraints>
                         </view>
                         <view key="tableFooterView" contentMode="scaleToFill" id="gcp-aO-nLn">
-                            <rect key="frame" x="0.0" y="397" width="375" height="164"/>
+                            <rect key="frame" x="0.0" y="631" width="375" height="164"/>
                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             <color key="backgroundColor" red="0.94901960780000005" green="0.94901960780000005" blue="0.94901960780000005" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         </view>
@@ -171,6 +171,91 @@
                                     </tableViewCell>
                                 </cells>
                             </tableViewSection>
+                            <tableViewSection id="0ST-IA-xNJ">
+                                <cells>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" accessoryType="disclosureIndicator" indentationWidth="10" textLabel="dQt-F7-eJ6" detailTextLabel="qBQ-9U-J9f" style="IBUITableViewCellStyleSubtitle" id="iyj-g5-mzR">
+                                        <rect key="frame" x="0.0" y="433" width="375" height="60"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="iyj-g5-mzR" id="fa3-EJ-Rr5">
+                                            <rect key="frame" x="0.0" y="0.0" width="341" height="59.666666666666664"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" text="ZFPlayer" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="dQt-F7-eJ6">
+                                                    <rect key="frame" x="16" y="9.9999999999999982" width="67.333333333333329" height="20.333333333333332"/>
+                                                    <autoresizingMask key="autoresizingMask"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                    <nil key="textColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                                <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" text="视频播放功能演示" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="qBQ-9U-J9f">
+                                                    <rect key="frame" x="15.999999999999993" y="33.333333333333329" width="98.333333333333329" height="14.333333333333334"/>
+                                                    <autoresizingMask key="autoresizingMask"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="12"/>
+                                                    <nil key="textColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                            </subviews>
+                                        </tableViewCellContentView>
+                                        <connections>
+                                            <segue destination="MXI-vz-TCa" kind="push" id="j8V-ws-nHN"/>
+                                        </connections>
+                                    </tableViewCell>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" accessoryType="disclosureIndicator" indentationWidth="10" textLabel="dl2-0w-KUy" detailTextLabel="v5b-hH-b9Y" style="IBUITableViewCellStyleSubtitle" id="FCP-GH-gF8">
+                                        <rect key="frame" x="0.0" y="493" width="375" height="60"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="FCP-GH-gF8" id="PEP-cq-KSo">
+                                            <rect key="frame" x="0.0" y="0.0" width="341" height="59.666666666666664"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" text="ZFPlayerTableView" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="dl2-0w-KUy">
+                                                    <rect key="frame" x="16" y="9.9999999999999982" width="143.33333333333334" height="20.333333333333332"/>
+                                                    <autoresizingMask key="autoresizingMask"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                    <nil key="textColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                                <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" text="列表播放多个视频" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="v5b-hH-b9Y">
+                                                    <rect key="frame" x="15.999999999999993" y="33.333333333333329" width="98.333333333333329" height="14.333333333333334"/>
+                                                    <autoresizingMask key="autoresizingMask"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="12"/>
+                                                    <nil key="textColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                            </subviews>
+                                        </tableViewCellContentView>
+                                        <connections>
+                                            <segue destination="Jmg-2f-BiD" kind="push" id="Cms-Q0-Xd5"/>
+                                        </connections>
+                                    </tableViewCell>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" accessoryType="disclosureIndicator" indentationWidth="10" textLabel="LPN-no-gG0" detailTextLabel="LGR-Tc-7mR" style="IBUITableViewCellStyleSubtitle" id="ZYH-3t-l3d">
+                                        <rect key="frame" x="0.0" y="553" width="375" height="60"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="ZYH-3t-l3d" id="PL3-JR-2ma">
+                                            <rect key="frame" x="0.0" y="0.0" width="341" height="59.666666666666664"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" text="Douyin Player" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="LPN-no-gG0">
+                                                    <rect key="frame" x="16.000000000000007" y="9.9999999999999982" width="104.66666666666667" height="20.333333333333332"/>
+                                                    <autoresizingMask key="autoresizingMask"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                    <nil key="textColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                                <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" text="实现“抖音”风格播放器" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="LGR-Tc-7mR">
+                                                    <rect key="frame" x="15.999999999999993" y="33.333333333333329" width="122.33333333333333" height="14.333333333333334"/>
+                                                    <autoresizingMask key="autoresizingMask"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="12"/>
+                                                    <nil key="textColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                            </subviews>
+                                        </tableViewCellContentView>
+                                        <connections>
+                                            <segue destination="5Bx-h4-5Kl" kind="push" id="DHj-B7-6hm"/>
+                                        </connections>
+                                    </tableViewCell>
+                                </cells>
+                            </tableViewSection>
                         </sections>
                     </tableView>
                     <navigationItem key="navigationItem" title="Demo" id="Q27-YO-7pG"/>
@@ -178,6 +263,86 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Ioe-Xu-49w" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="768.75" y="810.21126760563379"/>
+        </scene>
+        <!--ZFPlayer-->
+        <scene sceneID="NwS-sJ-gV5">
+            <objects>
+                <viewController id="MXI-vz-TCa" customClass="ZFPlayerViewController" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="HAH-zk-q0H">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ka8-4a-fpk">
+                                <rect key="frame" x="0.0" y="88" width="375" height="211"/>
+                                <subviews>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="YgJ-sI-6a6">
+                                        <rect key="frame" x="165.66666666666666" y="83.666666666666657" width="44" height="44"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="44" id="1x7-Lm-p7k"/>
+                                            <constraint firstAttribute="width" constant="44" id="D6v-C7-t4w"/>
+                                        </constraints>
+                                        <state key="normal" image="new_allPlay_44x44_"/>
+                                        <connections>
+                                            <action selector="playClick:" destination="MXI-vz-TCa" eventType="touchUpInside" id="Qtn-MB-Q7W"/>
+                                        </connections>
+                                    </button>
+                                </subviews>
+                                <color key="backgroundColor" red="0.83741801979999997" green="0.83743780850000005" blue="0.83742713930000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <constraints>
+                                    <constraint firstItem="YgJ-sI-6a6" firstAttribute="centerX" secondItem="ka8-4a-fpk" secondAttribute="centerX" id="GsD-Xq-kd9"/>
+                                    <constraint firstAttribute="width" secondItem="ka8-4a-fpk" secondAttribute="height" multiplier="16:9" id="gUP-ng-6ej"/>
+                                    <constraint firstItem="YgJ-sI-6a6" firstAttribute="centerY" secondItem="ka8-4a-fpk" secondAttribute="centerY" id="oLd-ds-tLe"/>
+                                </constraints>
+                            </view>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="ka8-4a-fpk" firstAttribute="top" secondItem="JK1-B9-7k5" secondAttribute="top" id="PPO-Wz-8u6"/>
+                            <constraint firstItem="JK1-B9-7k5" firstAttribute="trailing" secondItem="ka8-4a-fpk" secondAttribute="trailing" id="kno-q8-o6M"/>
+                            <constraint firstItem="ka8-4a-fpk" firstAttribute="leading" secondItem="HAH-zk-q0H" secondAttribute="leading" id="lh1-no-wsl"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="JK1-B9-7k5"/>
+                    </view>
+                    <navigationItem key="navigationItem" title="ZFPlayer" id="XOe-Va-JkG"/>
+                    <connections>
+                        <outlet property="containerView" destination="ka8-4a-fpk" id="sV6-hx-E0Q"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="OkO-GD-6C5" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1567" y="1216"/>
+        </scene>
+        <!--ZFPlayerTable-->
+        <scene sceneID="DbI-Kd-1Pg">
+            <objects>
+                <viewController id="Jmg-2f-BiD" customClass="ZFPlayerTableViewController" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="N3e-Qv-rOT">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <viewLayoutGuide key="safeArea" id="3EM-nN-yao"/>
+                    </view>
+                    <navigationItem key="navigationItem" title="ZFPlayerTable" id="fsu-H4-TvV"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="bK1-Ju-W69" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2298" y="1216"/>
+        </scene>
+        <!--Douyin-->
+        <scene sceneID="rrQ-eE-qN0">
+            <objects>
+                <viewController id="5Bx-h4-5Kl" customClass="DouyinPlayerViewController" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="vMp-ur-3xn">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <viewLayoutGuide key="safeArea" id="twp-Gz-V0t"/>
+                    </view>
+                    <navigationItem key="navigationItem" title="Douyin" id="8BZ-Ll-8qo"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="7PK-dn-ORp" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="3017" y="1216"/>
         </scene>
         <!--AVAudioPlayer-->
         <scene sceneID="FgH-Hf-jxZ">
@@ -534,7 +699,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="52w-KI-bqm" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1567.5" y="1114.4366197183099"/>
+            <point key="canvasLocation" x="3018" y="307"/>
         </scene>
         <!--播放中-->
         <scene sceneID="fgp-qr-GGO">
@@ -585,7 +750,7 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="F4m-CJ-Pvd">
-                                <rect key="frame" x="260.66666666666669" y="615.33333333333337" width="35" height="35"/>
+                                <rect key="frame" x="260.66666666666669" y="615.66666666666663" width="35" height="35"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="35" id="daK-Cx-e7K"/>
                                     <constraint firstAttribute="width" constant="35" id="wPJ-Nn-r0f"/>
@@ -615,7 +780,7 @@
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="SVC-SR-2BY">
-                                <rect key="frame" x="136" y="749" width="102" height="29"/>
+                                <rect key="frame" x="136.66666666666666" y="749" width="102" height="29"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="29" id="Q9c-sN-bvm"/>
                                     <constraint firstAttribute="width" constant="102" id="w6g-m6-Jo5"/>
@@ -680,7 +845,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="3cb-nc-KHF" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2296.8000000000002" y="1112.807881773399"/>
+            <point key="canvasLocation" x="3743" y="307"/>
         </scene>
     </scenes>
     <resources>
@@ -694,6 +859,7 @@
         <image name="icon_reset" width="33" height="33"/>
         <image name="icon_stop" width="66" height="66"/>
         <image name="model.png" width="636" height="634"/>
+        <image name="new_allPlay_44x44_" width="44" height="44"/>
         <image name="sea.png" width="484" height="484"/>
         <image name="tree.png" width="1120" height="1120"/>
     </resources>
