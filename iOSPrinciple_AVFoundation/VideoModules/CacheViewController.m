@@ -36,12 +36,7 @@
 - (void)reloadData {
     self.cacheItems = [KTVHTTPCache cacheFetchAllCacheItem];
     [self.tableView reloadData];
-    
-    if (self.cacheItems.count == 0) {
-        self.noneImageView.hidden = NO;
-    } else {
-        self.noneImageView.hidden = YES;
-    }
+    self.noneImageView.hidden = !(self.cacheItems.count == 0);
 }
 
 #pragma mark - Table View
