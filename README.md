@@ -1470,6 +1470,82 @@ eqFilter.gain            = gain;
 * 在线播放同时存储文件：使用AudioFileStreamer ＋ AudioQueue 可以满足
 * 在线播放且带有音效处理：使用 AudioFileStreamer ＋ AudioQueue ＋ 音效模块（系统自带或者自行开发）来满足
 
+## 视频篇
+
+出于项目完整性考虑，视频部分主要基于 ZFPlayer 的封装库实现，这里也简单介绍一下这个库在项目中的使用。
+
+![](http://og1yl0w9z.bkt.clouddn.com/18-6-6/53891050.jpg)
+
+简单的属性声明：
+
+```objc
+@property (nonatomic, strong) ZFPlayerController *player;
+@property (nonatomic, strong) ZFPlayerControlView *controlView;
+```
+
+初始化 ZFPlayerControlView 控件
+
+```objc
+- (ZFPlayerControlView *)controlView {
+    if (!_controlView) {
+        _controlView = [ZFPlayerControlView new];
+        [_controlView showTitle:@"视频标题" coverURLString:@"http://imgsrc.baidu.com/forum/eWH%3D240%2C176/sign=183252ee8bd6277ffb784f351a0c2f1c/5d6034a85edf8db15420ba310523dd54564e745d.jpg" fullScreenMode:ZFFullScreenModeLandscape];
+    }
+    return _controlView;
+}
+```
+
+通过 ZFAVPlayerManager 管理播放数据：
+
+```objc
+ZFAVPlayerManager *playerManager = [[ZFAVPlayerManager alloc] init];
+/// 播放器相关
+self.player = [ZFPlayerController playerWithPlayerManager:playerManager containerView:self.containerView];
+self.player.controlView = self.controlView;
+```
+
+设置数据加载，这里通过 KTVHTTPCache 实现视频缓存及管理，所以需要从缓存中读取播放数据：
+
+```objc
+NSString *URLString = [@"http://tb-video.bdstatic.com/tieba-smallvideo-transcode/3612804_e50cb68f52adb3c4c3f6135c0edcc7b0_3.mp4" stringByAddingPercentEncodingWithAllowedCharacters:[NSCharacterSet URLQueryAllowedCharacterSet]];
+    
+NSString *proxyURLString = [KTVHTTPCache proxyURLStringWithOriginalURLString:URLString];
+playerManager.assetURL = [NSURL URLWithString:proxyURLString];
+```
+
+基本上这样一个功能简单的播放器就完成了，就是这么简单暴力 😂..
+
+配合一些定制化，可以达到的效果还是能够用的：
+
+| 头条既视感 | 抖音既视感 |
+| ------------- | ------------- | 
+| ![](http://og1yl0w9z.bkt.clouddn.com/18-6-6/60433850.jpg) | ![](http://og1yl0w9z.bkt.clouddn.com/18-6-6/44354754.jpg) | 
+
+KTVHTTPCache 库的使用前需要一些初始化设置
+
+```objc
+- (void)setupHTTPCache {
+    [KTVHTTPCache logSetConsoleLogEnable:YES];
+    NSError * error;
+    [KTVHTTPCache proxyStart:&error];
+    if (error) {
+        NSLog(@"Proxy Start Failure, %@", error);
+    } else {
+        NSLog(@"Proxy Start Success");
+    }
+    
+    [KTVHTTPCache cacheSetURLFilterForArchive:^NSString *(NSString *originalURLString) {
+        NSLog(@"URL Filter reviced URL : %@", originalURLString);
+        return originalURLString;
+    }];
+}
+```
+
+通过 KTVHTTPCache 进行缓存管理更是简单，详情见 Demo 实现吧。
+
+![](http://og1yl0w9z.bkt.clouddn.com/18-6-6/59262692.jpg)
+
+
 未完待续，AVFoundation 体系太大，慢慢整理 🤣
 
 > 以上文章整理自：https://www.jianshu.com/p/589999e53461、https://blog.csdn.net/zahuopuboss/article/details/54862749、https://blog.csdn.net/feng2qing/article/details/67655175、https://blog.csdn.net/dolacmeng/article/details/77430108、https://www.jianshu.com/p/746cec2c3759、http://www.cocoachina.com/ios/20160726/17194.html、https://www.jianshu.com/p/c48195126040、https://www.jianshu.com/p/a7d5f43a84fb
