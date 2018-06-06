@@ -1476,14 +1476,14 @@ eqFilter.gain            = gain;
 
 ![](http://og1yl0w9z.bkt.clouddn.com/18-6-6/53891050.jpg)
 
-简单的属性声明：
+### 1.简单的属性声明：
 
 ```objc
 @property (nonatomic, strong) ZFPlayerController *player;
 @property (nonatomic, strong) ZFPlayerControlView *controlView;
 ```
 
-初始化 ZFPlayerControlView 控件
+### 2.初始化 ZFPlayerControlView 控件
 
 ```objc
 - (ZFPlayerControlView *)controlView {
@@ -1495,7 +1495,7 @@ eqFilter.gain            = gain;
 }
 ```
 
-通过 ZFAVPlayerManager 管理播放数据：
+### 3.通过 ZFAVPlayerManager 管理播放数据：
 
 ```objc
 ZFAVPlayerManager *playerManager = [[ZFAVPlayerManager alloc] init];
@@ -1504,7 +1504,7 @@ self.player = [ZFPlayerController playerWithPlayerManager:playerManager containe
 self.player.controlView = self.controlView;
 ```
 
-设置数据加载，这里通过 KTVHTTPCache 实现视频缓存及管理，所以需要从缓存中读取播放数据：
+### 4.设置数据加载，这里通过 KTVHTTPCache 实现视频缓存及管理，所以需要从缓存中读取播放数据：
 
 ```objc
 NSString *URLString = [@"http://tb-video.bdstatic.com/tieba-smallvideo-transcode/3612804_e50cb68f52adb3c4c3f6135c0edcc7b0_3.mp4" stringByAddingPercentEncodingWithAllowedCharacters:[NSCharacterSet URLQueryAllowedCharacterSet]];

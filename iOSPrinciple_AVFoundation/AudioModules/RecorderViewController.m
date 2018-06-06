@@ -79,11 +79,11 @@
     NSDictionary *recordSetting = [[NSDictionary alloc] initWithObjectsAndKeys:
                                    //采样率  8000/11025/22050/44100/96000（影响音频的质量）
                                    [NSNumber numberWithFloat: 8000.0],AVSampleRateKey,
-                                   // 音频格式
+                                   //音频格式
                                    [NSNumber numberWithInt: kAudioFormatLinearPCM],AVFormatIDKey,
                                    //采样位数  8、16、24、32 默认为16
                                    [NSNumber numberWithInt:16],AVLinearPCMBitDepthKey,
-                                   // 音频通道数 1 或 2
+                                   //音频通道数 1 或 2
                                    [NSNumber numberWithInt: 1], AVNumberOfChannelsKey,
                                    //录音质量
                                    [NSNumber numberWithInt:AVAudioQualityHigh],AVEncoderAudioQualityKey,
