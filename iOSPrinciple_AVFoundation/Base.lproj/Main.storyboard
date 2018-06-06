@@ -55,7 +55,7 @@
                             </constraints>
                         </view>
                         <view key="tableFooterView" contentMode="scaleToFill" id="gcp-aO-nLn">
-                            <rect key="frame" x="0.0" y="691" width="375" height="164"/>
+                            <rect key="frame" x="0.0" y="751" width="375" height="164"/>
                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             <color key="backgroundColor" red="0.94901960780000005" green="0.94901960780000005" blue="0.94901960780000005" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         </view>
@@ -170,12 +170,39 @@
                                             <segue destination="m5a-Hq-gRt" kind="push" id="3kB-tZ-m9s"/>
                                         </connections>
                                     </tableViewCell>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" accessoryType="disclosureIndicator" indentationWidth="10" textLabel="vUj-El-hpp" detailTextLabel="qkZ-wP-cIl" style="IBUITableViewCellStyleSubtitle" id="DO3-5V-Mo0">
+                                        <rect key="frame" x="0.0" y="397" width="375" height="60"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="DO3-5V-Mo0" id="eKA-6Q-O4Z">
+                                            <rect key="frame" x="0.0" y="0.0" width="341" height="59.666666666666664"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" text="AVAudioRecorder" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="vUj-El-hpp">
+                                                    <rect key="frame" x="16" y="9.9999999999999982" width="133.66666666666666" height="20.333333333333332"/>
+                                                    <autoresizingMask key="autoresizingMask"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                    <nil key="textColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                                <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" text="简单的音频录制" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="qkZ-wP-cIl">
+                                                    <rect key="frame" x="16" y="33.333333333333329" width="86" height="14.333333333333334"/>
+                                                    <autoresizingMask key="autoresizingMask"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="12"/>
+                                                    <nil key="textColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                            </subviews>
+                                        </tableViewCellContentView>
+                                        <connections>
+                                            <segue destination="puL-lJ-7BZ" kind="push" id="8EL-9x-OH2"/>
+                                        </connections>
+                                    </tableViewCell>
                                 </cells>
                             </tableViewSection>
                             <tableViewSection id="0ST-IA-xNJ">
                                 <cells>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" accessoryType="disclosureIndicator" indentationWidth="10" textLabel="dQt-F7-eJ6" detailTextLabel="qBQ-9U-J9f" style="IBUITableViewCellStyleSubtitle" id="iyj-g5-mzR">
-                                        <rect key="frame" x="0.0" y="433" width="375" height="60"/>
+                                        <rect key="frame" x="0.0" y="493" width="375" height="60"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="iyj-g5-mzR" id="fa3-EJ-Rr5">
                                             <rect key="frame" x="0.0" y="0.0" width="341" height="59.666666666666664"/>
@@ -202,7 +229,7 @@
                                         </connections>
                                     </tableViewCell>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" accessoryType="disclosureIndicator" indentationWidth="10" textLabel="dl2-0w-KUy" detailTextLabel="v5b-hH-b9Y" style="IBUITableViewCellStyleSubtitle" id="FCP-GH-gF8">
-                                        <rect key="frame" x="0.0" y="493" width="375" height="60"/>
+                                        <rect key="frame" x="0.0" y="553" width="375" height="60"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="FCP-GH-gF8" id="PEP-cq-KSo">
                                             <rect key="frame" x="0.0" y="0.0" width="341" height="59.666666666666664"/>
@@ -229,7 +256,7 @@
                                         </connections>
                                     </tableViewCell>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" accessoryType="disclosureIndicator" indentationWidth="10" textLabel="LPN-no-gG0" detailTextLabel="LGR-Tc-7mR" style="IBUITableViewCellStyleSubtitle" id="ZYH-3t-l3d">
-                                        <rect key="frame" x="0.0" y="553" width="375" height="60"/>
+                                        <rect key="frame" x="0.0" y="613" width="375" height="60"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="ZYH-3t-l3d" id="PL3-JR-2ma">
                                             <rect key="frame" x="0.0" y="0.0" width="341" height="59.666666666666664"/>
@@ -256,7 +283,7 @@
                                         </connections>
                                     </tableViewCell>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" accessoryType="disclosureIndicator" indentationWidth="10" textLabel="DTb-26-Knq" detailTextLabel="08f-Ds-2CG" style="IBUITableViewCellStyleSubtitle" id="ip8-vZ-Fhw">
-                                        <rect key="frame" x="0.0" y="613" width="375" height="60"/>
+                                        <rect key="frame" x="0.0" y="673" width="375" height="60"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="ip8-vZ-Fhw" id="RHo-OF-zlY">
                                             <rect key="frame" x="0.0" y="0.0" width="341" height="59.666666666666664"/>
@@ -291,6 +318,57 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Ioe-Xu-49w" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="768.75" y="810.21126760563379"/>
+        </scene>
+        <!--Recorder-->
+        <scene sceneID="qgr-U0-QQ8">
+            <objects>
+                <viewController id="puL-lJ-7BZ" customClass="RecorderViewController" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="mNl-Cy-vaB">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="UZ2-Hd-bMw">
+                                <rect key="frame" x="154" y="309.66666666666669" width="66" height="66"/>
+                                <state key="normal" image="icon_recording"/>
+                                <state key="selected" image="icon_cancel"/>
+                                <connections>
+                                    <action selector="startRecord:" destination="puL-lJ-7BZ" eventType="touchUpInside" id="WfA-c1-bLa"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="t06-oR-6be">
+                                <rect key="frame" x="154.33333333333334" y="466.66666666666669" width="66" height="66.000000000000057"/>
+                                <state key="normal" image="icon_play"/>
+                                <connections>
+                                    <action selector="PlayRecord:" destination="puL-lJ-7BZ" eventType="touchUpInside" id="pby-rk-B0b"/>
+                                </connections>
+                            </button>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="录制时间 60 s" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="BU7-XD-JQg">
+                                <rect key="frame" x="133.66666666666666" y="395.66666666666669" width="108" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="BU7-XD-JQg" firstAttribute="centerX" secondItem="mNl-Cy-vaB" secondAttribute="centerX" id="TfV-R7-vhk"/>
+                            <constraint firstItem="BU7-XD-JQg" firstAttribute="centerY" secondItem="mNl-Cy-vaB" secondAttribute="centerY" id="TnX-KP-aAH"/>
+                            <constraint firstItem="UZ2-Hd-bMw" firstAttribute="centerX" secondItem="mNl-Cy-vaB" secondAttribute="centerX" id="YA7-Ls-gps"/>
+                            <constraint firstItem="BU7-XD-JQg" firstAttribute="top" secondItem="UZ2-Hd-bMw" secondAttribute="bottom" constant="20" id="fv1-FY-1Ln"/>
+                            <constraint firstItem="t06-oR-6be" firstAttribute="top" secondItem="BU7-XD-JQg" secondAttribute="bottom" constant="50" id="ha8-1n-eTb"/>
+                            <constraint firstItem="t06-oR-6be" firstAttribute="centerX" secondItem="mNl-Cy-vaB" secondAttribute="centerX" id="z5l-SS-g2Z"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="vUl-xY-x7T"/>
+                    </view>
+                    <navigationItem key="navigationItem" title="Recorder" id="HHW-8W-CDa"/>
+                    <connections>
+                        <outlet property="noticeLabel" destination="BU7-XD-JQg" id="bpU-C1-5VT"/>
+                        <outlet property="playButton" destination="UZ2-Hd-bMw" id="5LI-b0-oyr"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="g2X-kb-GXn" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-2.3999999999999999" y="1852.4630541871923"/>
         </scene>
         <!--ZFPlayer-->
         <scene sceneID="NwS-sJ-gV5">
@@ -978,12 +1056,14 @@
     <resources>
         <image name="dog.png" width="445" height="446"/>
         <image name="icon_back" width="66" height="66"/>
+        <image name="icon_cancel" width="66" height="66"/>
         <image name="icon_equalizer" width="66" height="60"/>
         <image name="icon_hdmi" width="167" height="48"/>
         <image name="icon_mixing" width="66" height="66"/>
         <image name="icon_next" width="66" height="66"/>
         <image name="icon_none" width="149" height="149"/>
         <image name="icon_play" width="66" height="66"/>
+        <image name="icon_recording" width="66" height="66"/>
         <image name="icon_reset" width="33" height="33"/>
         <image name="icon_stop" width="66" height="66"/>
         <image name="model.png" width="636" height="634"/>

@@ -56,6 +56,7 @@
 		344ADE7920C6658000792AC9 /* CacheItemView.m in Sources */ = {isa = PBXBuildFile; fileRef = 344ADE7520C6657F00792AC9 /* CacheItemView.m */; };
 		344ADE7A20C6658000792AC9 /* CacheItemZoneCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 344ADE7720C6658000792AC9 /* CacheItemZoneCell.m */; };
 		344ADE7B20C6658000792AC9 /* CacheViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 344ADE7820C6658000792AC9 /* CacheViewController.m */; };
+		344ADF6F20C7842C00792AC9 /* RecorderViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 344ADF6E20C7842C00792AC9 /* RecorderViewController.m */; };
 		34D5BEC020BFBBBD00462281 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 34D5BEBF20BFBBBD00462281 /* AppDelegate.m */; };
 		34D5BEC620BFBBBD00462281 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 34D5BEC420BFBBBD00462281 /* Main.storyboard */; };
 		34D5BEC820BFBBC600462281 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 34D5BEC720BFBBC600462281 /* Assets.xcassets */; };
@@ -188,6 +189,8 @@
 		344ADE7620C6657F00792AC9 /* CacheItemZoneCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CacheItemZoneCell.h; sourceTree = "<group>"; };
 		344ADE7720C6658000792AC9 /* CacheItemZoneCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CacheItemZoneCell.m; sourceTree = "<group>"; };
 		344ADE7820C6658000792AC9 /* CacheViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CacheViewController.m; sourceTree = "<group>"; };
+		344ADF6D20C7842C00792AC9 /* RecorderViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = RecorderViewController.h; sourceTree = "<group>"; };
+		344ADF6E20C7842C00792AC9 /* RecorderViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = RecorderViewController.m; sourceTree = "<group>"; };
 		34D5BEBB20BFBBBD00462281 /* iOSPrinciple_AVFoundation.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = iOSPrinciple_AVFoundation.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		34D5BEBE20BFBBBD00462281 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		34D5BEBF20BFBBBD00462281 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
@@ -301,6 +304,8 @@
 				343720FA20C11F0C0078DB31 /* AVCachePlayer */,
 				34D5BEFF20BFF33B00462281 /* AVPlayer */,
 				34D5BEFE20BFF2DF00462281 /* AVAudioPlayer */,
+				344ADF6D20C7842C00792AC9 /* RecorderViewController.h */,
+				344ADF6E20C7842C00792AC9 /* RecorderViewController.m */,
 			);
 			path = AudioModules;
 			sourceTree = "<group>";
@@ -312,14 +317,7 @@
 				344ADDED20C63A9600792AC9 /* Other */,
 				344ADDE420C63A4800792AC9 /* Model */,
 				344ADDE320C63A4100792AC9 /* View */,
-				344ADE6220C64F6A00792AC9 /* ZFPlayerViewController.h */,
-				344ADE6320C64F6B00792AC9 /* ZFPlayerViewController.m */,
-				344ADDE020C6396100792AC9 /* ZFPlayerTableViewController.h */,
-				344ADDE120C6396100792AC9 /* ZFPlayerTableViewController.m */,
-				344ADE6520C656BE00792AC9 /* DouyinPlayerViewController.h */,
-				344ADE6620C656BE00792AC9 /* DouyinPlayerViewController.m */,
-				344ADE7420C6657F00792AC9 /* CacheViewController.h */,
-				344ADE7820C6658000792AC9 /* CacheViewController.m */,
+				344ADF7020C7846D00792AC9 /* Controller */,
 			);
 			path = VideoModules;
 			sourceTree = "<group>";
@@ -439,6 +437,21 @@
 			);
 			name = AVPlayer;
 			path = "../../../../Desktop/ZFPlayer-master/ZFPlayer/Classes/AVPlayer";
+			sourceTree = "<group>";
+		};
+		344ADF7020C7846D00792AC9 /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				344ADE6220C64F6A00792AC9 /* ZFPlayerViewController.h */,
+				344ADE6320C64F6B00792AC9 /* ZFPlayerViewController.m */,
+				344ADDE020C6396100792AC9 /* ZFPlayerTableViewController.h */,
+				344ADDE120C6396100792AC9 /* ZFPlayerTableViewController.m */,
+				344ADE6520C656BE00792AC9 /* DouyinPlayerViewController.h */,
+				344ADE6620C656BE00792AC9 /* DouyinPlayerViewController.m */,
+				344ADE7420C6657F00792AC9 /* CacheViewController.h */,
+				344ADE7820C6658000792AC9 /* CacheViewController.m */,
+			);
+			path = Controller;
 			sourceTree = "<group>";
 		};
 		34D5BEB220BFBBBC00462281 = {
@@ -900,6 +913,7 @@
 				344ADE6720C656BE00792AC9 /* DouyinPlayerViewController.m in Sources */,
 				344ADD9120C4D60200792AC9 /* AVEqualizerPlayerController.m in Sources */,
 				344ADDF220C63A9600792AC9 /* ZFTableViewCellLayout.m in Sources */,
+				344ADF6F20C7842C00792AC9 /* RecorderViewController.m in Sources */,
 				344ADE5720C63F5300792AC9 /* UIView+ZFFrame.m in Sources */,
 				344ADDF320C63A9600792AC9 /* NSString+Size.m in Sources */,
 				344ADE6C20C6575600792AC9 /* ZFDouYinCell.m in Sources */,
