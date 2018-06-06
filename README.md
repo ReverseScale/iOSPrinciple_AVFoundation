@@ -1548,6 +1548,66 @@ KTVHTTPCache 库的使用前需要一些初始化设置
 | ------------- | ------------- | 
 | ![](http://og1yl0w9z.bkt.clouddn.com/18-6-6/59262692.jpg) | ![](http://og1yl0w9z.bkt.clouddn.com/18-6-6/95240899.jpg) | 
 
+## 录音篇
+只是使用原生的功能简单实现，凑数的，不然总觉得对不起 AVFoundation 这个标题 😅
+
+### 1.获取沙盒路径，用于存储数据信息
+```objc
+    //1.获取沙盒地址
+    NSString *path = [NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES) lastObject];
+    filePath = [path stringByAppendingString:@"/RRecord.wav"];
+    
+    //2.获取文件路径
+    self.recordFileUrl = [NSURL fileURLWithPath:filePath];
+```
+
+### 2.设置采集参数，如采样率、音频格式、采样位数等
+
+```objc
+    //设置参数
+    NSDictionary *recordSetting = [[NSDictionary alloc] initWithObjectsAndKeys:
+                                   //采样率  8000/11025/22050/44100/96000（影响音频的质量）
+                                   [NSNumber numberWithFloat: 8000.0],AVSampleRateKey,
+                                   //音频格式
+                                   [NSNumber numberWithInt: kAudioFormatLinearPCM],AVFormatIDKey,
+                                   //采样位数  8、16、24、32 默认为16
+                                   [NSNumber numberWithInt:16],AVLinearPCMBitDepthKey,
+                                   //音频通道数 1 或 2
+                                   [NSNumber numberWithInt: 1], AVNumberOfChannelsKey,
+                                   //录音质量
+                                   [NSNumber numberWithInt:AVAudioQualityHigh],AVEncoderAudioQualityKey,
+                                   nil];
+    _recorder = [[AVAudioRecorder alloc] initWithURL:self.recordFileUrl settings:recordSetting error:nil];
+```
+
+### 3.这里为了演示效果，提供 session 供以后播放
+
+```objc
+    // session 准备，后面直接播放
+    AVAudioSession *session = [AVAudioSession sharedInstance];
+    NSError *sessionError;
+    [session setCategory:AVAudioSessionCategoryPlayAndRecord error:&sessionError];
+    if (session == nil) {
+        NSLog(@"Error creating session: %@",[sessionError description]);
+    } else {
+        [session setActive:YES error:nil];
+    }
+```
+
+### 4.加载播放，验证采集文件，就听个响写的简陋点..
+
+```objc
+    if ([self.player isPlaying]) return;
+    self.player = [[AVAudioPlayer alloc] initWithContentsOfURL:self.recordFileUrl error:nil];
+    [self.session setCategory:AVAudioSessionCategoryPlayback error:nil];
+    [self.player play];
+```
+
+就是这个样子滴:
+
+| 录音中 | 录完了  |
+| ------------- | ------------- | 
+| ![](http://og1yl0w9z.bkt.clouddn.com/18-6-6/78488756.jpg) | ![](http://og1yl0w9z.bkt.clouddn.com/18-6-6/56156027.jpg) | 
 
 未完待续，AVFoundation 体系太大，慢慢整理 🤣
 
