@@ -1609,6 +1609,6 @@ KTVHTTPCache 库的使用前需要一些初始化设置
 | ------------- | ------------- | 
 | ![](http://og1yl0w9z.bkt.clouddn.com/18-6-6/78488756.jpg) | ![](http://og1yl0w9z.bkt.clouddn.com/18-6-6/56156027.jpg) | 
 
-未完待续，AVFoundation 体系太大，慢慢整理 🤣
+未完待续，AVFoundation 体系太大，慢慢划水 🤣
 
 > 以上文章整理自：https://www.jianshu.com/p/589999e53461、https://blog.csdn.net/zahuopuboss/article/details/54862749、https://blog.csdn.net/feng2qing/article/details/67655175、https://blog.csdn.net/dolacmeng/article/details/77430108、https://www.jianshu.com/p/746cec2c3759、http://www.cocoachina.com/ios/20160726/17194.html、https://www.jianshu.com/p/c48195126040、https://www.jianshu.com/p/a7d5f43a84fb
