@@ -45,7 +45,7 @@
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Yyi-0Z-SGm">
-                                <rect key="frame" x="141" y="451" width="92" height="30"/>
+                                <rect key="frame" x="141" y="331" width="92" height="30"/>
                                 <state key="normal" title="录制视频实现"/>
                                 <connections>
                                     <action selector="recordingAction:" destination="Cmx-ol-2sB" eventType="touchUpInside" id="HvA-uX-HgP"/>
@@ -55,9 +55,9 @@
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
                             <constraint firstItem="Yyi-0Z-SGm" firstAttribute="centerX" secondItem="bue-ea-aNF" secondAttribute="centerX" id="8RE-mK-qt6"/>
+                            <constraint firstItem="P5v-V4-8cE" firstAttribute="top" secondItem="Yyi-0Z-SGm" secondAttribute="bottom" constant="30" id="SWo-rU-oqI"/>
                             <constraint firstItem="P5v-V4-8cE" firstAttribute="centerY" secondItem="bue-ea-aNF" secondAttribute="centerY" id="b40-pL-VVe"/>
                             <constraint firstItem="P5v-V4-8cE" firstAttribute="centerX" secondItem="bue-ea-aNF" secondAttribute="centerX" id="jGF-f6-Kxn"/>
-                            <constraint firstItem="Yyi-0Z-SGm" firstAttribute="top" secondItem="P5v-V4-8cE" secondAttribute="bottom" constant="30" id="vOv-pU-qwA"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="ehr-T7-aIL"/>
                     </view>
@@ -351,18 +351,18 @@
                                         <rect key="frame" x="0.0" y="733" width="375" height="60"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="Wk1-4D-AKO" id="vzR-Lj-Ycb">
-                                            <rect key="frame" x="0.0" y="0.0" width="341" height="59.666666666666664"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="349" height="59.666666666666664"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" text="Recording" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="Y6Y-IU-idq">
-                                                    <rect key="frame" x="16" y="9.9999999999999982" width="78" height="20.333333333333332"/>
+                                                    <rect key="frame" x="15" y="9.9999999999999982" width="78" height="20.333333333333332"/>
                                                     <autoresizingMask key="autoresizingMask"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" text="视频录制、播放等" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="Le0-nS-8wZ">
-                                                    <rect key="frame" x="15.999999999999993" y="33.333333333333329" width="98.333333333333329" height="14.333333333333334"/>
+                                                    <rect key="frame" x="14.999999999999993" y="33.333333333333329" width="98.333333333333329" height="14.333333333333334"/>
                                                     <autoresizingMask key="autoresizingMask"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="12"/>
                                                     <nil key="textColor"/>

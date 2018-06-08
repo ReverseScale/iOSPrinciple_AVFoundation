@@ -27,8 +27,6 @@
     _videoView = [[MPMovieVideoView alloc] initWithFMVideoViewType:TypeFullScreen];
     _videoView.delegate = self;
     [self.view addSubview:_videoView];
-    
-    
 }
 
 - (void)viewWillAppear:(BOOL)animated {
@@ -36,7 +34,6 @@
     if (_videoView.mpModel.recordState == FMRecordStateFinish) {
         [_videoView reset];
     }
-    
 }
 #pragma mark - FMFVideoViewDelegate
 - (void)dismissVC {

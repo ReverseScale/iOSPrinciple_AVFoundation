@@ -392,8 +392,7 @@
         
         self.recordState = FMRecordStateFinish;
         //剪裁成正方形
-        //[self cutVideoWithFinished:nil];
-        
+        [self cutVideoWithFinished:nil];
     }
     
 }
@@ -418,7 +417,7 @@
 ///完成剪裁
 //test
 - (void)cutVideoWithFinished:(void (^)(void))finished {
-    //1 — 采集
+    // 1 采集
     AVAsset *asset = [AVAsset assetWithURL:self.videoUrl];
     // 2 创建AVMutableComposition实例. apple developer 里边的解释 【AVMutableComposition is a mutable subclass of AVComposition you use when you want to
     // create a new composition from existing assets. You can add and remove tracks, and you can add, remove, and scale time ranges.】
@@ -430,12 +429,12 @@
     //获取duration的时候，不要用asset.duration，应该用track.timeRange.duration，用前者的时间不准确，会导致黑帧
     [videoTrack insertTimeRange:CMTimeRangeMake(kCMTimeZero, videoAssetTrack.timeRange.duration) ofTrack:videoAssetTrack atTime:kCMTimeZero error:nil];
     
-    // 4. 音频通道
+    // 4 音频通道
     AVMutableCompositionTrack *audioTrack = [composition addMutableTrackWithMediaType:AVMediaTypeAudio preferredTrackID:kCMPersistentTrackID_Invalid];
     AVAssetTrack *audioAssetTrack =[[asset tracksWithMediaType:AVMediaTypeAudio] firstObject];
     [audioTrack insertTimeRange:CMTimeRangeMake(kCMTimeZero, videoAssetTrack.timeRange.duration) ofTrack:audioAssetTrack atTime:kCMTimeZero error:nil];
     
-    //5 创建视频组合图层指令AVMutableVideoCompositionLayerInstruction，并设置图层指令在视频的作用时间范围和旋转矩阵变换
+    // 5 创建视频组合图层指令AVMutableVideoCompositionLayerInstruction，并设置图层指令在视频的作用时间范围和旋转矩阵变换
     CMTime totalDuration = kCMTimeZero;
     AVMutableVideoCompositionLayerInstruction *layerInstruction = [AVMutableVideoCompositionLayerInstruction videoCompositionLayerInstructionWithAssetTrack:videoTrack];
     totalDuration = CMTimeAdd(totalDuration, videoAssetTrack.timeRange.duration);
@@ -451,14 +450,14 @@
     rate = renderW / MIN(videoAssetTrack.naturalSize.width, videoAssetTrack.naturalSize.height);
     
     
-    // 7. 根据录制视频时的方向旋转视频
+    // 7 根据录制视频时的方向旋转视频
     CGAffineTransform layerTransform = CGAffineTransformMake(videoAssetTrack.preferredTransform.a, videoAssetTrack.preferredTransform.b, videoAssetTrack.preferredTransform.c, videoAssetTrack.preferredTransform.d, videoAssetTrack.preferredTransform.tx * rate, videoAssetTrack.preferredTransform.ty * rate);
     layerTransform = CGAffineTransformConcat(layerTransform, CGAffineTransformMake(1, 0, 0, 1, 0, -(videoAssetTrack.naturalSize.width - videoAssetTrack.naturalSize.height) / 2.0));
     layerTransform = CGAffineTransformScale(layerTransform, rate, rate);
     [layerInstruction setTransform:layerTransform atTime:kCMTimeZero];
     [layerInstruction setOpacity:0.0 atTime:totalDuration];
     
-    //8. 创建视频组合指令AVMutableVideoCompositionInstruction，并设置指令在视频的作用时间范围和旋转矩阵变换
+    // 8 创建视频组合指令AVMutableVideoCompositionInstruction，并设置指令在视频的作用时间范围和旋转矩阵变换
     AVMutableVideoCompositionInstruction *instruction = [AVMutableVideoCompositionInstruction videoCompositionInstruction];
     instruction.timeRange = CMTimeRangeMake(kCMTimeZero, totalDuration);
     instruction.layerInstructions = @[layerInstruction];
@@ -474,7 +473,7 @@
     }
     
     NSURL *outurl = [[NSURL alloc] initFileURLWithPath:outputPath];
-    // 9.导出视频
+    // 9 导出视频
     AVAssetExportSession *exporter = [[AVAssetExportSession alloc] initWithAsset:composition presetName:AVAssetExportPresetMediumQuality];
     exporter.videoComposition = mainComposition;
     exporter.outputURL = outurl;
