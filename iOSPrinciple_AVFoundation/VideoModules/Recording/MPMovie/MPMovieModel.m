@@ -168,10 +168,10 @@
     CGRect rect = CGRectZero;
     switch (type) {
         case Type1X1:
-            rect = CGRectMake(0, 0, kScreenWidth, kScreenWidth);
+            rect = CGRectMake(0, 0, SCREEN_WIDTH, SCREEN_WIDTH);
             break;
         case Type4X3:
-            rect = CGRectMake(0, 0, kScreenWidth, kScreenWidth*4/3);
+            rect = CGRectMake(0, 0, SCREEN_WIDTH, SCREEN_WIDTH*4/3);
             break;
         case TypeFullScreen:
             rect = [UIScreen mainScreen].bounds;

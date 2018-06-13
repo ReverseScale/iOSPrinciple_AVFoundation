@@ -1,0 +1,192 @@
+//
+//  PrefixHeader.pch
+//  AvatarPhoto
+//
+//  Created by Z on 2017/9/12.
+//  Copyright © 2017年 Z. All rights reserved.
+//
+
+#ifndef PrefixHeader_pch
+#define PrefixHeader_pch
+
+#import "UIColor+Hex.h"
+#import "UIView+GMCategory.h"
+#import "UIBarButtonItem+Extension.h"
+#import "UINavigationController+FDFullscreenPopGesture.h"
+
+//0.视频相关*********************************************************************************************//
+
+#define RECORD_MAX_TIME 8.0           //最长录制时间
+#define TIMER_INTERVAL 0.05         //计时器刷新频率
+#define VIDEO_FOLDER @"videoFolder" //视频录制存放文件夹
+
+//1.获取屏幕宽度与高度*********************************************************************************************//
+#define SCREEN_WIDTH [UIScreen mainScreen].bounds.size.width
+#define SCREEN_HEIGHT [UIScreen mainScreen].bounds.size.height
+#define SCREEN_SIZE [UIScreen mainScreen].bounds.size
+#define SCREEN_BOUNDS [UIScreen mainScreen].bounds//屏幕的bounds
+#define KMARGIN 8//默认间距
+
+
+#define NAVBAR_COLORCHANGE_POINT (-IMAGE_HEIGHT + NAV_HEIGHT*2)
+#define NAV_HEIGHT 64       //导航栏的高度
+#define TABBAR_HEIGHT 49 //底部tabbar高度
+#define IMAGE_HEIGHT 260
+#define SCROLL_DOWN_LIMIT 70
+#define LIMIT_OFFSET_Y -(IMAGE_HEIGHT + SCROLL_DOWN_LIMIT)
+#define NAVBAR_COLORCHANGE (IMAGE_HEIGHT - NAV_HEIGHT*2)
+
+
+//2.获取通知中心*************************************************************************************************//
+#define GM_NotificationCenter [NSNotificationCenter defaultCenter]
+
+//3.设置随机颜色*************************************************************************************************//
+#define GM_RandomColor [UIColor colorWithRed:arc4random_uniform(256)/255.0 green:arc4random_uniform(256)/255.0 blue:arc4random_uniform(256)/255.0 alpha:1.0]
+
+//4.设置RGB颜色/设置RGBA颜色*************************************************************************************//
+#define GM_RGBColor(r, g, b) [UIColor colorWithRed:(r)/255.0 green:(g)/255.0 blue:(b)/255.0 alpha:1.0]
+#define GM_RGBAColor(r, g, b, a) [UIColor colorWithRed:(r)/255.0 green:(r)/255.0 blue:(r)/255.0 alpha:a]
+// clear背景颜色
+#define GM_ClearColor [UIColor clearColor]
+
+//5.自定义高效率的NSLog*****************************************************************************************//
+#ifdef DEBUG
+#define NSLog(format, ...) printf("[%s • %s]  %s  第%d行\n\t %s\n\n",__DATE__, __TIME__, __FUNCTION__, __LINE__, [[NSString stringWithFormat:format, ## __VA_ARGS__] UTF8String]);
+#else
+#define NSLog(format, ...)
+#endif
+
+
+//弱引用  强引用
+#define WEAK_SELF(value) __weak typeof(self) value = self
+#define STRONG_SELF(value) __strong typeof(self) value = self
+
+//6.屏幕比例以iphon6Plus屏幕大小为依据,设置比例*******************************************************************//
+#define IPHONE_SCALEH  [UIScreen mainScreen].bounds.size.height/667.f
+
+
+//7.设置圆角和边框********************************************************************************************//
+#define GM_BorderRadius(Controls, Radius, Width, Color)\
+\
+[Controls.layer setCornerRadius:(Radius)];\
+[Controls.layer setMasksToBounds:YES];\
+[Controls.layer setBorderWidth:(Width)];\
+[Controls.layer setBorderColor:[Color CGColor]]
+
+
+//8.由角度转换弧度 由弧度转换角度*******************************************************************************//
+#define GM_DegreesToRadian(x) (M_PI * (x) / 180.0)
+#define GM_RadianToDegrees(radian) (radian*180.0)/(M_PI)
+
+
+//9.获取当前语言*********************************************************************************************//
+#define GM_CurrentLanguage ([[NSLocale preferredLanguages] objectAtIndex:0])
+
+/*获取AppDelegate */
+#define APPDelegate ((AppDelegate *)[[UIApplication sharedApplication] delegate])
+
+/*获取sharedApplication */
+#define GMSharedApplication [UIApplication sharedApplication]
+
+//10.判断当前的iPhone设备/系统版本****************************************************************************//
+//判断是否为iPhone
+#define IS_IPHONE (UI_USER_INTERFACE_IDIOM() == UIUserInterfaceIdiomPhone)
+//判断是否为iPad
+#define IS_IPAD (UI_USER_INTERFACE_IDIOM() == UIUserInterfaceIdiomPad)
+//判断是否为ipod
+#define IS_IPOD ([[[UIDevice currentDevice] model] isEqualToString:@"iPod touch"])
+// 判断是否为 iPhone 5SE
+#define iPhone5SE [[UIScreen mainScreen] bounds].size.width == 320.0f && [[UIScreen mainScreen] bounds].size.height == 568.0f
+// 判断是否为iPhone 6/6s
+#define iPhone6_6s [[UIScreen mainScreen] bounds].size.width == 375.0f && [[UIScreen mainScreen] bounds].size.height == 667.0f
+// 判断是否为iPhone 6Plus/6sPlus
+#define iPhone6Plus_6sPlus [[UIScreen mainScreen] bounds].size.width == 414.0f && [[UIScreen mainScreen] bounds].size.height == 736.0f
+//获取系统版本
+#define IOS_SYSTEM_VERSION [[[UIDevice currentDevice] systemVersion] floatValue]
+//判断 iOS 8 或更高的系统版本
+#define IOS_VERSION_8_OR_LATER (([[[UIDevice currentDevice] systemVersion] floatValue] >=8.0)? (YES):(NO))
+
+//11.沙盒目录文件********************************************************************************************//
+//获取temp
+#define GM_PathTemp NSTemporaryDirectory()
+//获取沙盒 Document
+#define GM_PathDocument [NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES) firstObject]
+//获取沙盒 Cache
+#define GM_PathCache [NSSearchPathForDirectoriesInDomains(NSCachesDirectory, NSUserDomainMask, YES) firstObject]
+
+//设置字体大小
+#define FONTSIZE(x)  [UIFont systemFontOfSize:x]
+
+//菊花颜色
+#define KspinKitViewColor GM_RGBColor(249, 105, 109)
+
+//根据文本及其字号返回size
+#define TEXTSIZEWITHFONT(text,font) [text sizeWithAttributes:[NSMutableDictionary dictionaryWithObject:font forKey:NSFontAttributeName]]
+
+
+/**
+ *  the saving objects      存储对象
+ *
+ *  @param __VALUE__ V
+ *  @param __KEY__   K
+ *
+ *  @return
+ */
+#define GM_UserDefaultSetObjectForKey(__VALUE__,__KEY__) \
+{\
+[[NSUserDefaults standardUserDefaults] setObject:__VALUE__ forKey:__KEY__];\
+[[NSUserDefaults standardUserDefaults] synchronize];\
+}
+
+/**
+ *  get the saved objects       获得存储的对象
+ */
+#define GM_UserDefaultObjectForKey(__KEY__)  [[NSUserDefaults standardUserDefaults] objectForKey:__KEY__]
+
+/**
+ *  delete objects      删除对象
+ */
+#define GM_UserDefaultRemoveObjectForKey(__KEY__) \
+{\
+[[NSUserDefaults standardUserDefaults] removeObjectForKey:__KEY__];\
+[[NSUserDefaults standardUserDefaults] synchronize];\
+}
+
+
+//单例的宏定义
+// 1.写在单例对象.h文件中
+#define GMSingleton_H(name) + (instancetype)shared##name;
+
+// 2.写在单例对象.m文件中
+#define GMSingleton_M(name) \
+static id _instance; \
+\
++ (instancetype)allocWithZone:(struct _NSZone *)zone \
+{ \
+static dispatch_once_t onceToken; \
+dispatch_once(&onceToken, ^{ \
+_instance = [super allocWithZone:zone]; \
+}); \
+return _instance; \
+} \
+\
++ (instancetype)shared##name \
+{ \
+static dispatch_once_t onceToken; \
+dispatch_once(&onceToken, ^{ \
+_instance = [[self alloc] init]; \
+}); \
+return _instance; \
+} \
+\
+- (id)copyWithZone:(NSZone *)zone \
+{ \
+return _instance; \
+}\
+\
+- (id)mutableCopyWithZone:(NSZone *)zone { \
+return _instance; \
+}
+
+
+#endif /* PrefixHeader_pch */

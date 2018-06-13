@@ -18,6 +18,11 @@
 		3437210F20C11F250078DB31 /* SUFileHandle.m in Sources */ = {isa = PBXBuildFile; fileRef = 3437210920C11F250078DB31 /* SUFileHandle.m */; };
 		3437211220C11F7C0078DB31 /* AVCachePlayerViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3437211120C11F7C0078DB31 /* AVCachePlayerViewController.m */; };
 		3437211420C1233E0078DB31 /* tree.png in Resources */ = {isa = PBXBuildFile; fileRef = 3437211320C1233E0078DB31 /* tree.png */; };
+		344733EE20D0BCF40067453E /* AvatarPhotoController.m in Sources */ = {isa = PBXBuildFile; fileRef = 344733ED20D0BCF40067453E /* AvatarPhotoController.m */; };
+		344733F520D0BE940067453E /* UIView+GMCategory.m in Sources */ = {isa = PBXBuildFile; fileRef = 344733EF20D0BE930067453E /* UIView+GMCategory.m */; };
+		344733F620D0BE940067453E /* UINavigationController+FDFullscreenPopGesture.m in Sources */ = {isa = PBXBuildFile; fileRef = 344733F120D0BE930067453E /* UINavigationController+FDFullscreenPopGesture.m */; };
+		344733F720D0BE940067453E /* UIBarButtonItem+Extension.m in Sources */ = {isa = PBXBuildFile; fileRef = 344733F420D0BE940067453E /* UIBarButtonItem+Extension.m */; };
+		344733FD20D0C1250067453E /* UserAvatarController.m in Sources */ = {isa = PBXBuildFile; fileRef = 344733FC20D0C1250067453E /* UserAvatarController.m */; };
 		344ADD9120C4D60200792AC9 /* AVEqualizerPlayerController.m in Sources */ = {isa = PBXBuildFile; fileRef = 344ADD9020C4D60200792AC9 /* AVEqualizerPlayerController.m */; };
 		344ADD9320C4D72100792AC9 /* model.png in Resources */ = {isa = PBXBuildFile; fileRef = 344ADD9220C4D72100792AC9 /* model.png */; };
 		344ADD9F20C53B6000792AC9 /* specialPeople.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 344ADD9E20C53B6000792AC9 /* specialPeople.mp3 */; };
@@ -123,6 +128,17 @@
 		3437211020C11F7C0078DB31 /* AVCachePlayerViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AVCachePlayerViewController.h; sourceTree = "<group>"; };
 		3437211120C11F7C0078DB31 /* AVCachePlayerViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AVCachePlayerViewController.m; sourceTree = "<group>"; };
 		3437211320C1233E0078DB31 /* tree.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = tree.png; sourceTree = "<group>"; };
+		344733EC20D0BCF40067453E /* AvatarPhotoController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AvatarPhotoController.h; sourceTree = "<group>"; };
+		344733ED20D0BCF40067453E /* AvatarPhotoController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AvatarPhotoController.m; sourceTree = "<group>"; };
+		344733EF20D0BE930067453E /* UIView+GMCategory.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIView+GMCategory.m"; sourceTree = "<group>"; };
+		344733F020D0BE930067453E /* UIBarButtonItem+Extension.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIBarButtonItem+Extension.h"; sourceTree = "<group>"; };
+		344733F120D0BE930067453E /* UINavigationController+FDFullscreenPopGesture.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UINavigationController+FDFullscreenPopGesture.m"; sourceTree = "<group>"; };
+		344733F220D0BE930067453E /* UIView+GMCategory.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIView+GMCategory.h"; sourceTree = "<group>"; };
+		344733F320D0BE940067453E /* UINavigationController+FDFullscreenPopGesture.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UINavigationController+FDFullscreenPopGesture.h"; sourceTree = "<group>"; };
+		344733F420D0BE940067453E /* UIBarButtonItem+Extension.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIBarButtonItem+Extension.m"; sourceTree = "<group>"; };
+		344733FB20D0C1250067453E /* UserAvatarController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = UserAvatarController.h; sourceTree = "<group>"; };
+		344733FC20D0C1250067453E /* UserAvatarController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = UserAvatarController.m; sourceTree = "<group>"; };
+		344733FE20D0C1E10067453E /* PrefixHeader.pch */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PrefixHeader.pch; sourceTree = "<group>"; };
 		344ADD8F20C4D60200792AC9 /* AVEqualizerPlayerController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AVEqualizerPlayerController.h; sourceTree = "<group>"; };
 		344ADD9020C4D60200792AC9 /* AVEqualizerPlayerController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AVEqualizerPlayerController.m; sourceTree = "<group>"; };
 		344ADD9220C4D72100792AC9 /* model.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = model.png; sourceTree = "<group>"; };
@@ -218,7 +234,6 @@
 		344ADFF720CA5FF100792AC9 /* VideoRecordProgressView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VideoRecordProgressView.m; sourceTree = "<group>"; };
 		344ADFF820CA5FF100792AC9 /* UIColor+Hex.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIColor+Hex.h"; sourceTree = "<group>"; };
 		344ADFF920CA5FF100792AC9 /* VideoFileManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VideoFileManager.h; sourceTree = "<group>"; };
-		344ADFFD20CA605100792AC9 /* VideoHeader.pch */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VideoHeader.pch; sourceTree = "<group>"; };
 		34D5BEBB20BFBBBD00462281 /* iOSPrinciple_AVFoundation.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = iOSPrinciple_AVFoundation.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		34D5BEBE20BFBBBD00462281 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		34D5BEBF20BFBBBD00462281 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
@@ -312,6 +327,32 @@
 				3437210020C11F250078DB31 /* SULoaderCategory.h */,
 				3437210120C11F250078DB31 /* NSString+SULoader.m */,
 				3437210220C11F250078DB31 /* NSURL+SULoader.m */,
+			);
+			path = Category;
+			sourceTree = "<group>";
+		};
+		344733EB20D0BCC60067453E /* ImageModules */ = {
+			isa = PBXGroup;
+			children = (
+				344733FB20D0C1250067453E /* UserAvatarController.h */,
+				344733FC20D0C1250067453E /* UserAvatarController.m */,
+				344733EC20D0BCF40067453E /* AvatarPhotoController.h */,
+				344733ED20D0BCF40067453E /* AvatarPhotoController.m */,
+			);
+			path = ImageModules;
+			sourceTree = "<group>";
+		};
+		344733FF20D0C33B0067453E /* Category */ = {
+			isa = PBXGroup;
+			children = (
+				344ADFF820CA5FF100792AC9 /* UIColor+Hex.h */,
+				344ADFF520CA5FF100792AC9 /* UIColor+Hex.m */,
+				344733F020D0BE930067453E /* UIBarButtonItem+Extension.h */,
+				344733F420D0BE940067453E /* UIBarButtonItem+Extension.m */,
+				344733F320D0BE940067453E /* UINavigationController+FDFullscreenPopGesture.h */,
+				344733F120D0BE930067453E /* UINavigationController+FDFullscreenPopGesture.m */,
+				344733F220D0BE930067453E /* UIView+GMCategory.h */,
+				344733EF20D0BE930067453E /* UIView+GMCategory.m */,
 			);
 			path = Category;
 			sourceTree = "<group>";
@@ -514,9 +555,7 @@
 		344ADFF320CA5FF100792AC9 /* Tool */ = {
 			isa = PBXGroup;
 			children = (
-				344ADFFD20CA605100792AC9 /* VideoHeader.pch */,
-				344ADFF820CA5FF100792AC9 /* UIColor+Hex.h */,
-				344ADFF520CA5FF100792AC9 /* UIColor+Hex.m */,
+				344733FE20D0C1E10067453E /* PrefixHeader.pch */,
 				344ADFF920CA5FF100792AC9 /* VideoFileManager.h */,
 				344ADFF620CA5FF100792AC9 /* VideoFileManager.m */,
 				344ADFF420CA5FF100792AC9 /* VideoRecordProgressView.h */,
@@ -565,8 +604,10 @@
 			children = (
 				34D5BEBE20BFBBBD00462281 /* AppDelegate.h */,
 				34D5BEBF20BFBBBD00462281 /* AppDelegate.m */,
+				344733EB20D0BCC60067453E /* ImageModules */,
 				344ADDDF20C6376800792AC9 /* VideoModules */,
 				344ADDDE20C6375600792AC9 /* AudioModules */,
+				344733FF20D0C33B0067453E /* Category */,
 				344ADFF320CA5FF100792AC9 /* Tool */,
 				34D5BEF020BFBC3000462281 /* Resource */,
 				34D5BEC420BFBBBD00462281 /* Main.storyboard */,
@@ -977,12 +1018,14 @@
 				344ADFD620CA559E00792AC9 /* ZFPlayerGestureControl.m in Sources */,
 				344ADFDA20CA559E00792AC9 /* ZFPlayerNotification.m in Sources */,
 				344ADE6D20C6575600792AC9 /* ZFDouYinControlView.m in Sources */,
+				344733EE20D0BCF40067453E /* AvatarPhotoController.m in Sources */,
 				3437210D20C11F250078DB31 /* SURequestTask.m in Sources */,
 				344ADFD720CA559E00792AC9 /* ZFPlayerController.m in Sources */,
 				344ADFDC20CA559E00792AC9 /* ZFPlayerView.m in Sources */,
 				344ADFEC20CA5E2800792AC9 /* MovieVideoViewController.m in Sources */,
 				344ADFDF20CA559E00792AC9 /* UIViewController+ZFPlayerRotation.m in Sources */,
 				344ADE7B20C6658000792AC9 /* CacheViewController.m in Sources */,
+				344733F720D0BE940067453E /* UIBarButtonItem+Extension.m in Sources */,
 				344ADFB920CA51FF00792AC9 /* PickerController.m in Sources */,
 				3437210F20C11F250078DB31 /* SUFileHandle.m in Sources */,
 				34D5BEFD20BFE06E00462281 /* AVAudioPlayerViewController.m in Sources */,
@@ -1003,12 +1046,15 @@
 				34D5BF0520BFF4CD00462281 /* RSMusicModel.m in Sources */,
 				344ADE6720C656BE00792AC9 /* DouyinPlayerViewController.m in Sources */,
 				344ADFDB20CA559E00792AC9 /* ZFFloatView.m in Sources */,
+				344733F620D0BE940067453E /* UINavigationController+FDFullscreenPopGesture.m in Sources */,
 				344ADD9120C4D60200792AC9 /* AVEqualizerPlayerController.m in Sources */,
+				344733F520D0BE940067453E /* UIView+GMCategory.m in Sources */,
 				344ADDF220C63A9600792AC9 /* ZFTableViewCellLayout.m in Sources */,
 				344ADFF220CA5EAB00792AC9 /* MPMovieFileVideoController.m in Sources */,
 				344ADF6F20C7842C00792AC9 /* RecorderViewController.m in Sources */,
 				344ADE5720C63F5300792AC9 /* UIView+ZFFrame.m in Sources */,
 				344ADDF320C63A9600792AC9 /* NSString+Size.m in Sources */,
+				344733FD20D0C1250067453E /* UserAvatarController.m in Sources */,
 				344ADE6C20C6575600792AC9 /* ZFDouYinCell.m in Sources */,
 				3437210E20C11F250078DB31 /* SUPlayer.m in Sources */,
 				344ADFE220CA597D00792AC9 /* RecordingViewController.m in Sources */,
@@ -1202,7 +1248,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 7QT42R489Z;
-				GCC_PREFIX_HEADER = iOSPrinciple_AVFoundation/Tool/VideoHeader.pch;
+				GCC_PREFIX_HEADER = iOSPrinciple_AVFoundation/Tool/PrefixHeader.pch;
 				INFOPLIST_FILE = iOSPrinciple_AVFoundation/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -1221,7 +1267,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 7QT42R489Z;
-				GCC_PREFIX_HEADER = iOSPrinciple_AVFoundation/Tool/VideoHeader.pch;
+				GCC_PREFIX_HEADER = iOSPrinciple_AVFoundation/Tool/PrefixHeader.pch;
 				INFOPLIST_FILE = iOSPrinciple_AVFoundation/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -1239,6 +1285,7 @@
 			buildSettings = {
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = 7QT42R489Z;
 				INFOPLIST_FILE = iOSPrinciple_AVFoundationTests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -1258,6 +1305,7 @@
 			buildSettings = {
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = 7QT42R489Z;
 				INFOPLIST_FILE = iOSPrinciple_AVFoundationTests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -1276,6 +1324,7 @@
 			baseConfigurationReference = 7868855C9806E5CB6F2075DA /* Pods-iOSPrinciple_AVFoundationUITests.debug.xcconfig */;
 			buildSettings = {
 				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = 7QT42R489Z;
 				INFOPLIST_FILE = iOSPrinciple_AVFoundationUITests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -1294,6 +1343,7 @@
 			baseConfigurationReference = 1247A7F327AA27A4748DA0A0 /* Pods-iOSPrinciple_AVFoundationUITests.release.xcconfig */;
 			buildSettings = {
 				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = 7QT42R489Z;
 				INFOPLIST_FILE = iOSPrinciple_AVFoundationUITests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",

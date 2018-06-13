@@ -42,12 +42,12 @@
     self.mpModel.delegate = self;
     
     self.topView = [[UIView alloc] init];
-    self.topView.frame = CGRectMake(0, 0, kScreenHeight, 44);
+    self.topView.frame = CGRectMake(0, 0, SCREEN_HEIGHT, 44);
     [self addSubview:self.topView];
     
     self.timeView = [[UIView alloc] init];
     self.timeView.hidden = YES;
-    self.timeView.frame = CGRectMake((kScreenWidth - 100)/2, 16, 100, 34);
+    self.timeView.frame = CGRectMake((SCREEN_WIDTH - 100)/2, 16, 100, 34);
     self.timeView.backgroundColor = [UIColor colorWithRGB:0x242424 alpha:0.7];
     self.timeView.layer.cornerRadius = 4;
     self.timeView.layer.masksToBounds = YES;
@@ -77,7 +77,7 @@
     
     
     self.turnCamera = [UIButton buttonWithType:UIButtonTypeCustom];
-    self.turnCamera.frame = CGRectMake(kScreenWidth - 60 - 28, 11, 28, 22);
+    self.turnCamera.frame = CGRectMake(SCREEN_WIDTH - 60 - 28, 11, 28, 22);
     [self.turnCamera setImage:[UIImage imageNamed:@"listing_camera_lens"] forState:UIControlStateNormal];
     [self.turnCamera addTarget:self action:@selector(turnCameraAction) forControlEvents:UIControlEventTouchUpInside];
     [self.turnCamera sizeToFit];
@@ -85,14 +85,14 @@
     
     
     self.flashBtn = [UIButton buttonWithType:UIButtonTypeCustom];
-    self.flashBtn.frame = CGRectMake(kScreenWidth - 22 - 15, 11, 22, 22);
+    self.flashBtn.frame = CGRectMake(SCREEN_WIDTH - 22 - 15, 11, 22, 22);
     [self.flashBtn setImage:[UIImage imageNamed:@"listing_flash_off"] forState:UIControlStateNormal];
     [self.flashBtn addTarget:self action:@selector(flashAction) forControlEvents:UIControlEventTouchUpInside];
     [self.flashBtn sizeToFit];
     [self.topView addSubview:self.flashBtn];
     
     
-    self.progressView = [[VideoRecordProgressView alloc] initWithFrame:CGRectMake((kScreenWidth - 62)/2, kScreenHeight - 32 - 62, 62, 62)];
+    self.progressView = [[VideoRecordProgressView alloc] initWithFrame:CGRectMake((SCREEN_WIDTH - 62)/2, SCREEN_HEIGHT - 32 - 62, 62, 62)];
     self.progressView.backgroundColor = [UIColor clearColor];
     [self addSubview:self.progressView];
     self.recordBtn = [UIButton buttonWithType:UIButtonTypeCustom];

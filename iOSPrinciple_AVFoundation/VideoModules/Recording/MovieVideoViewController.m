@@ -56,7 +56,7 @@
 {
     UIImageView *imageView = [[UIImageView alloc] init];
     imageView.image = [UIImage imageNamed:@"video_play_nav_bg"];
-    imageView.frame = CGRectMake(0, 0, kScreenWidth, 44);
+    imageView.frame = CGRectMake(0, 0, SCREEN_WIDTH, 44);
     imageView.userInteractionEnabled = YES;
     
     UIButton *cancelBtn = [UIButton buttonWithType:UIButtonTypeCustom];
@@ -68,7 +68,7 @@
     UIButton *Done = [UIButton buttonWithType:UIButtonTypeCustom];
     [Done addTarget:self action:@selector(DoneAction) forControlEvents:UIControlEventTouchUpInside];
     [Done setTitle:@"Done" forState:UIControlStateNormal];
-    Done.frame = CGRectMake(kScreenWidth - 70, 0, 50, 44);
+    Done.frame = CGRectMake(SCREEN_WIDTH - 70, 0, 50, 44);
     [imageView addSubview:Done];
     
     self.navigationController.navigationBar.hidden = YES;
