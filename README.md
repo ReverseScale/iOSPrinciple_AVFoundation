@@ -1609,6 +1609,27 @@ KTVHTTPCache 库的使用前需要一些初始化设置
 | ------------- | ------------- | 
 | ![](http://og1yl0w9z.bkt.clouddn.com/18-6-6/78488756.jpg) | ![](http://og1yl0w9z.bkt.clouddn.com/18-6-6/56156027.jpg) | 
 
+
+## 图片篇
+最近多事之秋，划水一带而过吧
+图片处理最为常用的，可能属用户头像的设置了，这里主要封装头像选取和裁剪的 Demo。
+
+### 概述
+主要通过继承 UIImagePickerController 的方式进行基本的实现，接口开放了下面两个方法：
+
+```Objc
++ (instancetype)creatWithSourceType:(UIImagePickerControllerSourceType)sourceType config:(PhotoNaviStyle *)config;
+```
+
+UIImagePickerControllerSourceType 用于选择图片数据来源，主要是调用相机拍摄或者读取用户相册。
+config 用于设置一下自定义的样式。
+
+### 实现过程：
+
+用户点击事件 -> Alert 选择数据源 -> 调用封装系统实现 -> 回调方法携带处理过的 image
+
+> 详细实现见 Demo 吧，毕竟比较常用的功能，并不出彩..
+
 未完待续，AVFoundation 体系太大，慢慢划水 🤣
 
 > 以上文章整理自：https://www.jianshu.com/p/589999e53461、https://blog.csdn.net/zahuopuboss/article/details/54862749、https://blog.csdn.net/feng2qing/article/details/67655175、https://blog.csdn.net/dolacmeng/article/details/77430108、https://www.jianshu.com/p/746cec2c3759、http://www.cocoachina.com/ios/20160726/17194.html、https://www.jianshu.com/p/c48195126040、https://www.jianshu.com/p/a7d5f43a84fb
