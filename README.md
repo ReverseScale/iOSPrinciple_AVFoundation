@@ -1,6 +1,11 @@
 # iOSPrinciple_AVFoundation
 Principle AVFoundation
 
+> 2018.09.28更新：
+读书推荐《音视频开发进阶指南》
+![](http://og1yl0w9z.bkt.clouddn.com/18-9-28/36561626.jpg)
+从 FFmpeg 讲多端音视频开发，从原理到实践，讲的非常清晰的一本书。
+
 # AVFoundation
 
 AVFoundation是苹果在iOS和OS X系统中用于处理基于时间的媒体数据的框架. 
