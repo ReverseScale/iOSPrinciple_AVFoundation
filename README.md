@@ -6,6 +6,9 @@ Principle AVFoundation
 <img width="180" height="240" src="http://og1yl0w9z.bkt.clouddn.com/18-9-28/51620823.jpg"/>
 从 FFmpeg 源码解析到 OpenGL ES 讲多端音视频开发，从原理到实践，逻辑清晰，非常值得学习的一本书。
 
+* 对于 OpenGL ES，业界著名的开源库 GPUImage
+* ijkPlayer 基于 ffplay 进行改造的播放器
+
 # AVFoundation
 
 AVFoundation是苹果在iOS和OS X系统中用于处理基于时间的媒体数据的框架. 
