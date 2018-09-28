@@ -3,7 +3,7 @@ Principle AVFoundation
 
 > 2018.09.28更新：
 读书推荐《音视频开发进阶指南》
-<img width="200" height="250" src="http://og1yl0w9z.bkt.clouddn.com/18-9-28/51620823.jpg"/>
+<img width="180" height="250" src="http://og1yl0w9z.bkt.clouddn.com/18-9-28/51620823.jpg"/>
 从 FFmpeg 讲多端音视频开发，从原理到实践，讲的非常清晰的一本书。
 
 # AVFoundation
