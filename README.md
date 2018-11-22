@@ -846,7 +846,7 @@ __weak typeof(self) weakSelf = self;
 
 演示效果：
 
-![](http://ghexoblogimages.oss-cn-beijing.aliyuncs.com/18-11-22/35949012.jpg)
+![](http://ghexoblogimages.oss-cn-beijing.aliyuncs.com/18-11-22/55702526.jpg)
 
 3）其他用法
 
