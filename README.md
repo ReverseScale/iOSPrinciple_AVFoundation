@@ -3,7 +3,7 @@ Principle AVFoundation
 
 > 2018.09.28更新：
 读书推荐《音视频开发进阶指南 基于Android与iOS平台的实践》
-<img width="180" height="240" src="http://ghexoblogimages.oss-cn-beijing.aliyuncs.com/18-11-22/32458716.jpg"/>
+<img width="200" height="240" src="http://ghexoblogimages.oss-cn-beijing.aliyuncs.com/18-11-22/32458716.jpg"/>
 从 FFmpeg 源码解析到 OpenGL ES 讲多端音视频开发，从原理到实践，逻辑清晰，非常值得学习的一本书。
 
 * ijkPlayer 是基于 FFmpeg 框架下 ffplay 进行改造的播放器
