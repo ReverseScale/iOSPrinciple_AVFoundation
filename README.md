@@ -510,7 +510,7 @@ AVAudioPlayer 代理方法实现
 
 这样，图片就在锁屏界面显示了
 
-![](http://ghexoblogimages.oss-cn-beijing.aliyuncs.com/18-11-22/19262050.jpg)
+![](http://ghexoblogimages.oss-cn-beijing.aliyuncs.com/18-11-22/74542535.jpg)
 
 要响应锁屏界面上面的三个按钮，需要在一个继承 UIResponder 类里面接收远程控制，添加如下代码，接受远程控制和取消远程控制：
 
@@ -846,7 +846,7 @@ __weak typeof(self) weakSelf = self;
 
 演示效果：
 
-![](http://ghexoblogimages.oss-cn-beijing.aliyuncs.com/18-11-22/32583289.jpg)
+![](http://ghexoblogimages.oss-cn-beijing.aliyuncs.com/18-11-22/35949012.jpg)
 
 3）其他用法
 
