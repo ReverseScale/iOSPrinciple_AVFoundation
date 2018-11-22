@@ -13,7 +13,7 @@ Principle AVFoundation
 
 AVFoundation是苹果在iOS和OS X系统中用于处理基于时间的媒体数据的框架. 
 
-![](http://og1yl0w9z.bkt.clouddn.com/18-5-31/8140547.jpg)
+![](http://ghexoblogimages.oss-cn-beijing.aliyuncs.com/18-11-22/29213088.jpg)
 
 下面简单介绍下AVFoundation内最主要的支撑框架和其提供的功能.
 
@@ -23,7 +23,7 @@ AVFoundation是苹果在iOS和OS X系统中用于处理基于时间的媒体数�
 
 在深入了解学习[AVFoundation](https://www.jianshu.com/p/ff6814722e20)前,最好还要了解下相关现代数字媒体的采样和处理知识.
 
-![](http://og1yl0w9z.bkt.clouddn.com/18-6-1/59308275.jpg)
+![](http://ghexoblogimages.oss-cn-beijing.aliyuncs.com/18-11-22/52770571.jpg)
 
 数字媒体采样: 其实就是对媒体内容进行数字化,主要有两种方式:
 
@@ -35,7 +35,7 @@ AVFoundation是苹果在iOS和OS X系统中用于处理基于时间的媒体数�
 
 现实生活中，我们听到的声音都是时间连续的，我们称为这种信号叫模拟信号。模拟信号需要进行数字化以后才能在计算机中使用。数字化的过程如下：
 
-![](http://og1yl0w9z.bkt.clouddn.com/18-6-1/96425216.jpg)
+![](http://ghexoblogimages.oss-cn-beijing.aliyuncs.com/18-11-22/15152374.jpg)
 
 采样 -> 量化 -> 编码
 
@@ -47,7 +47,7 @@ AVFoundation是苹果在iOS和OS X系统中用于处理基于时间的媒体数�
 
 采样频率是指单位时间内对声音模拟信号的采样次数。采样率类似于视频的帧数，比如电影的采样率是24Hz。
 
-![](http://og1yl0w9z.bkt.clouddn.com/18-6-1/60320737.jpg)
+![](http://ghexoblogimages.oss-cn-beijing.aliyuncs.com/18-11-22/8446915.jpg)
 
 当我们把采样到的一个个静止画面再以采样率同样的速度回放时，看到的就是连续的画面。同样的道理，把以44.1kHZ采样率记录的CD以同样的速率播放时，就能听到连续的声音。
 
@@ -433,7 +433,7 @@ AVAudioPlayer 代理方法实现
 
 效果演示：
 
-![](http://og1yl0w9z.bkt.clouddn.com/18-6-1/91357353.jpg)
+![](http://ghexoblogimages.oss-cn-beijing.aliyuncs.com/18-11-22/82257199.jpg)
 
 3）其他功能
 
@@ -458,7 +458,7 @@ AVAudioPlayer 代理方法实现
 
 这样音乐在后台就可以播放了！
 
-![](http://og1yl0w9z.bkt.clouddn.com/18-6-1/4393307.jpg)
+![](http://ghexoblogimages.oss-cn-beijing.aliyuncs.com/18-11-22/74683124.jpg)
 
 * 监听播放设备
 
@@ -510,7 +510,7 @@ AVAudioPlayer 代理方法实现
 
 这样，图片就在锁屏界面显示了
 
-![](http://og1yl0w9z.bkt.clouddn.com/18-6-1/58643070.jpg)
+![](http://ghexoblogimages.oss-cn-beijing.aliyuncs.com/18-11-22/19262050.jpg)
 
 要响应锁屏界面上面的三个按钮，需要在一个继承 UIResponder 类里面接收远程控制，添加如下代码，接受远程控制和取消远程控制：
 
@@ -632,7 +632,7 @@ exporeSession.outputURL = [NSURL fileURLWithPath:resultPath];
 
 压缩转码需要用到 LAME (Lame Aint an MP3 Encoder)，下载链接：https://sourceforge.net/projects/lame/files/lame/
 
-![](http://og1yl0w9z.bkt.clouddn.com/18-5-31/3758149.jpg)
+![](http://ghexoblogimages.oss-cn-beijing.aliyuncs.com/18-11-22/31816359.jpg)
 
 下载解压后将文件夹命名为 lame，否则无法生成.h和.m文件
 
@@ -648,7 +648,7 @@ $:open build_lame.sh
 $:sudo sh build_lame.sh
 ```
 
-![](http://og1yl0w9z.bkt.clouddn.com/18-5-31/78735245.jpg)
+![](http://ghexoblogimages.oss-cn-beijing.aliyuncs.com/18-11-22/71567398.jpg)
 
 将fat-lame文件夹下的include文件夹和lib文件夹放入工程,再写一个OC的类调用lame.h
 
@@ -657,4 +657,830 @@ $:sudo sh build_lame.sh
     int read, write;
     FILE *pcm = fopen([filePath cStringUsingEncoding:1], "rb");//被转换的音频文件位置
     fseek(pcm, 4*1024, SEEK_CUR);
-    FILE *mp3 = fopen([resultPath cStringUsingEncoding:1], "wb");//生成的Mp3
+    FILE *mp3 = fopen([resultPath cStringUsingEncoding:1], "wb");//生成的Mp3文件位置
+
+    const int PCM_SIZE = 8192;
+    const int MP3_SIZE = 8192;
+    short int pcm_buffer[PCM_SIZE*2];
+    unsigned char mp3_buffer[MP3_SIZE];
+
+    // 初始化lame编码器
+    lame_t lame = lame_init();
+    // 设置lame mp3编码的采样率 / 声道数 / 比特率
+    lame_set_in_samplerate(lame, 8000);
+    lame_set_num_channels(lame,2);
+    lame_set_out_samplerate(lame, 8000);
+    lame_set_brate(lame, 8);
+    // MP3音频质量.0~9.其中0是最好,非常慢,9是最差.
+    lame_set_quality(lame, 7);
+
+    // 设置mp3的编码方式
+    lame_set_VBR(lame, vbr_default);
+    lame_init_params(lame);
+
+    do {
+        size_t size = (size_t)(2 * sizeof(short int));
+        read = fread(pcm_buffer, size, PCM_SIZE, pcm);
+        if (read == 0) {
+            write = lame_encode_flush(lame, mp3_buffer, MP3_SIZE);
+        } else {
+            write = lame_encode_buffer_interleaved(lame, pcm_buffer, read, mp3_buffer, MP3_SIZE);
+        }
+        fwrite(mp3_buffer, write, 1, mp3);
+
+    } while (read != 0);
+
+    lame_close(lame);
+    fclose(mp3);
+    fclose(pcm);
+}
+@catch (NSException *exception) {
+    NSLog(@"%@",[exception description]);
+}
+@finally {
+    // 转码完成
+    return resultPath;
+}
+```
+
+基本上可以将100K左右的录音文件压缩到10K以下
+
+![](http://ghexoblogimages.oss-cn-beijing.aliyuncs.com/18-11-22/82754964.jpg)
+
+### AVPlayer
+
+AVPlayer支持播放本地、分步下载、或在线流媒体音视频，不仅可以播放音频，配合AVPlayerLayer类可实现视频播放。另外支持播放进度监听。
+
+使用AVPlayer需导入AVFoundation.h
+
+```objc
+#import <AVFoundation/AVFoundation.h>
+```
+
+支持视频格式： WMV，AVI，MKV，RMVB，RM，XVID，MP4，3GP，MPG等。
+
+支持音频格式：MP3，WMA，RM，ACC，OGG，APE，FLAC，FLV等。
+
+> 在开发中，单纯使用AVPlayer类是无法显示视频的，要将视频层添加至AVPlayerLayer中，这样才能将视频显示出来
+
+介绍一下常用方法：
+
+1）AVPlayer 初始化
+
+```objc
++ (instancetype)playerWithURL:(NSURL *)URL;
+
++ (instancetype)playerWithPlayerItem:(AVPlayerItem *)item;
+
+- (instancetype)initWithURL:(NSURL *)URL;
+
+- (instancetype)initWithPlayerItem:(AVPlayerItem *)item;
+```
+
+2）AVPlayer 方法调用
+AVPlayer需要通过AVPlayerItem来关联需要播放的媒体。
+
+```objc
+AVPlayerItem *item = [[AVPlayerItem alloc] initWithURL:[NSURL URLWithString:urlStr]];
+AVPlayer *player = [[AVPlayer alloc] initWithPlayerItem:item];
+```
+
+准备播放前，通过KVO添加播放状态改变监听
+
+```objc
+[self.player.currentItem addObserver:self forKeyPath:@"status" options:NSKeyValueObservingOptionNew context:nil];
+```
+
+处理KVO回调事件：
+
+```objc
+-(void)observeValueForKeyPath:(NSString *)keyPath ofObject:(id)object change:(NSDictionary<NSKeyValueChangeKey,id> *)change context:(void *)context {
+    if ([keyPath isEqualToString:@"status"]) {
+        switch (self.player.status) {
+            case AVPlayerStatusUnknown: {
+                NSLog(@"未知转态");
+            }
+                break;
+            case AVPlayerStatusReadyToPlay: {
+                NSLog(@"准备播放");
+            }
+                break;
+            case AVPlayerStatusFailed:  {
+                NSLog(@"加载失败");
+            }
+                break;
+            default:
+                break;
+        }
+    }
+}
+```
+
+KVO监听音乐缓冲状态：
+
+```objc
+[self.player.currentItem addObserver:self
+                          forKeyPath:@"loadedTimeRanges"
+                             options:NSKeyValueObservingOptionNew
+                             context:nil];
+```
+
+监听事件处理
+
+```objc
+-(void)observeValueForKeyPath:(NSString *)keyPath ofObject:(id)object change:(NSDictionary<NSKeyValueChangeKey,id> *)change context:(void *)context {
+    //...
+    if ([keyPath isEqualToString:@"loadedTimeRanges"]) {
+
+        NSArray * timeRanges = self.player.currentItem.loadedTimeRanges;
+        //本次缓冲的时间范围
+        CMTimeRange timeRange = [timeRanges.firstObject CMTimeRangeValue];
+        //缓冲总长度
+        NSTimeInterval totalLoadTime = CMTimeGetSeconds(timeRange.start) + CMTimeGetSeconds(timeRange.duration);
+        //音乐的总时间
+        NSTimeInterval duration = CMTimeGetSeconds(self.player.currentItem.duration);
+        //计算缓冲百分比例
+        NSTimeInterval scale = totalLoadTime/duration;
+        //更新缓冲进度条
+        //        self.loadTimeProgress.progress = scale;
+    }
+}
+```
+
+开始播放后，通过KVO添加播放结束事件监听
+
+```objc
+[[NSNotificationCenter defaultCenter] addObserver:self
+                                         selector:@selector(playFinished:)
+                                             name:AVPlayerItemDidPlayToEndTimeNotification
+                                           object:_player.currentItem];
+```
+
+开始播放时，通过AVPlayer的方法监听播放进度，并更新进度条（定期监听的方法）：
+
+```objc
+__weak typeof(self) weakSelf = self;
+[self.player addPeriodicTimeObserverForInterval:CMTimeMake(1.0, 1.0) queue:dispatch_get_main_queue() usingBlock:^(CMTime time) {
+    //当前播放的时间
+    float current = CMTimeGetSeconds(time);
+    //总时间
+    float total = CMTimeGetSeconds(item.duration);
+    if (current) {
+        float progress = current / total;
+        //更新播放进度条
+        weakSelf.playSlider.value = progress;
+    }
+}];
+```
+
+用户拖动进度条，修改播放进度
+
+```objc
+- (void)playSliderValueChange:(UISlider *)sender {
+    //根据值计算时间
+    float time = sender.value * CMTimeGetSeconds(self.player.currentItem.duration);
+    //跳转到当前指定时间
+    [self.player seekToTime:CMTimeMake(time, 1)];
+}
+```
+
+演示效果：
+
+![](http://ghexoblogimages.oss-cn-beijing.aliyuncs.com/18-11-22/32583289.jpg)
+
+3）其他用法
+
+* 控制视频的进度
+使用懒加载的方式，将进度条添加到View上面
+
+```objc
+- (UISlider *)avSlider{
+    if (!_avSlider) {
+        _avSlider = [[UISlider alloc]initWithFrame:CGRectMake(0, 55, self.view.bounds.size.width, 30)];
+        [self.view addSubview:_avSlider];
+    }return _avSlider;
+}
+```
+
+在viewDidLoad中个slider（进度条）添加一个回调
+
+```objc
+[self.avSlider addTarget:self action:@selector(avSliderAction) forControlEvents:
+UIControlEventTouchUpInside|UIControlEventTouchCancel|UIControlEventTouchUpOutside];
+```
+
+回调方法
+
+```objc
+- (void)avSliderAction {
+    //slider的value值为视频的时间
+    float seconds = self.avSlider.value;
+    //让视频从指定的CMTime对象处播放。
+    CMTime startTime = CMTimeMakeWithSeconds(seconds, self.item.currentTime.timescale);
+    //让视频从指定处播放
+    [self.myPlayer seekToTime:startTime completionHandler:^(BOOL finished) {
+        if (finished) {
+            [self playAction];
+        }
+    }];
+}
+```
+
+* 后台播放
+
+![](http://ghexoblogimages.oss-cn-beijing.aliyuncs.com/18-11-22/19645986.jpg)
+
+首先 info.plist 文件中设置权限
+
+```
+<key>UIBackgroundModes</key>
+<array>
+    <string>audio</string>
+</array>
+```
+
+在AppDelegate.m的- (BOOL)application:didFinishLaunchingWithOptions:方法中添加代码：
+
+```objc
+AVAudioSession *session = [AVAudioSession sharedInstance];
+[session setCategory:AVAudioSessionCategoryPlayback error:nil];
+[session setActive:YES error:nil];
+```
+
+* 锁屏信息
+
+![](http://ghexoblogimages.oss-cn-beijing.aliyuncs.com/18-11-22/54340678.jpg)
+
+Now Playing Center并不需要每一秒都去刷新（设置），它是根据你设置的PlaybackRate来计算进度条展示的进度，比如你PlaybackRate传1，那就是1秒刷新一次进度显示，当然暂停播放的时候它也会自动暂停。
+
+```objc
+- (void)configNowPlayingCenter {    
+    BASE_INFO_FUN(@"配置NowPlayingCenter");
+    NSMutableDictionary * info = [NSMutableDictionary dictionary];
+    //音乐的标题
+    [info setObject:_player.currentSong.title forKey:MPMediaItemPropertyTitle];
+     //音乐的艺术家
+    [info setObject:_player.currentSong.artist forKey:MPMediaItemPropertyArtist];
+     //音乐的播放时间
+    [info setObject:@(self.player.playTime.intValue) forKey:MPNowPlayingInfoPropertyElapsedPlaybackTime];
+     //音乐的播放速度
+    [info setObject:@(1) forKey:MPNowPlayingInfoPropertyPlaybackRate];
+     //音乐的总时间
+    [info setObject:@(self.player.playDuration.intValue) forKey:MPMediaItemPropertyPlaybackDuration];
+     //音乐的封面
+    MPMediaItemArtwork * artwork = [[MPMediaItemArtwork alloc] initWithImage:_player.coverImg];
+    [info setObject:artwork forKey:MPMediaItemPropertyArtwork];
+     //完成设置
+    [[MPNowPlayingInfoCenter defaultCenter]setNowPlayingInfo:info];
+}
+```
+那什么时候设置Now Playing Center比较合适呢？对于播放网络音乐来说，需要刷新的有几个时间点：当前播放的歌曲变化时（如切换到下一首）、当前歌曲信息变化时（如从Unknown到ReadyToPlay）、当前歌曲拖动进度时。
+
+* 耳机线控或者锁屏界面控制
+先引入头文件
+
+```objc
+#import <MediaPlayer/MPRemoteCommandCenter.h>
+#import <MediaPlayer/MPRemoteCommand.h>
+```
+
+在需要处理远程控制事件的具体控制器或其它类中调用下面这个方法
+
+```objc
+- (void)remoteControlEventHandler {
+    // 直接使用sharedCommandCenter来获取MPRemoteCommandCenter的shared实例
+    MPRemoteCommandCenter *commandCenter = [MPRemoteCommandCenter sharedCommandCenter];
+
+// 启用播放命令 (锁屏界面和上拉快捷功能菜单处的播放按钮触发的命令)
+commandCenter.playCommand.enabled = YES;
+// 为播放命令添加响应事件, 在点击后触发
+[commandCenter.playCommand addTarget:self action:@selector(playAction:)];
+
+// 播放, 暂停, 上下曲的命令默认都是启用状态, 即enabled默认为YES
+// 为暂停, 上一曲, 下一曲分别添加对应的响应事件
+[commandCenter.pauseCommand addTarget:self action:@selector(pauseAction:)];
+[commandCenter.previousTrackCommand addTarget:self action:@selector(previousTrackAction:)];
+[commandCenter.nextTrackCommand addTarget:self action:@selector(nextTrackAction:)];
+
+// 启用耳机的播放/暂停命令 (耳机上的播放按钮触发的命令)
+commandCenter.togglePlayPauseCommand.enabled = YES;
+// 为耳机的按钮操作添加相关的响应事件
+[commandCenter.togglePlayPauseCommand addTarget:self action:@selector(playOrPauseAction:)];
+}
+
+-(void)playAction:(id)obj {
+    [[HYPlayerTool sharePlayerTool] play];
+}
+-(void)pauseAction:(id)obj {
+    [[HYPlayerTool sharePlayerTool] pause];
+}
+-(void)nextTrackAction:(id)obj {
+    [[HYPlayerTool sharePlayerTool] playNext];
+}
+-(void)previousTrackAction:(id)obj {
+    [[HYPlayerTool sharePlayerTool] playPre];
+}
+-(void)playOrPauseAction:(id)obj {
+    if ([[HYPlayerTool sharePlayerTool] isPlaying]) {
+        [[HYPlayerTool sharePlayerTool] pause];
+    }else{
+        [[HYPlayerTool sharePlayerTool] play];
+    }
+}
+```
+
+### AVQueuePlayer
+
+AVPlayer只支持单个媒体资源的播放，我们可以使用AVPlayer的子类AVQueuePlayer实现列表播放。
+
+在AVPlayer的基础上，增加以下方法：
+
+```objc
+//通过给定的AVPlayerItem数组创建一个AVQueuePlayer实例
++ (instancetype)queuePlayerWithItems:(NSArray<AVPlayerItem *> *)items;
+
+//通过给定的AVPlayerItem数组初始化AVQueuePlayer实例
+- (AVQueuePlayer *)initWithItems:(NSArray<AVPlayerItem *> *)items;
+
+//获得当前的播放队列数组
+- (NSArray<AVPlayerItem *> *)items;
+
+//停止播放当前音乐，并播放队列中的下一首
+- (void)advanceToNextItem;
+
+//往播放队列中插入新的AVPlayerItem
+- (void)insertItem:(AVPlayerItem *)item afterItem:(nullable AVPlayerItem *)afterItem;
+
+//从播放队列中移除指定AVPlayerItem
+- (void)removeItem:(AVPlayerItem *)item;
+
+//清空播放队列
+- (void)removeAllItems;
+```
+
+官方API中没找到播放上一首的方法，所以其实直接用AVPlayer做列表播放也是可以的，通过维护一个播放列表数组，监听用户点击上一首和下一首按钮，并监听播放结束事件，调用 AVPlayer 实例的replaceCurrentItemWithPlayerItem:方法传入播放列表中的上一首或下一首。
+
+### AVPlayer 的缓存实现
+
+这里主要展示通过AVAssetResourceLoader实现AVPlayer的缓存。
+
+没有任何工具能适用于所有的场景，在使用AVPlayer的过程中，我们会发现它有很多局限性，比如播放网络音乐时，往往不能控制其内部播放逻辑，比如我们会发现播放时seek会失败，数据加载完毕后不能获取到数据文件进行其他操作，因此我们需要寻找弥补其不足之处的方法，这里我们选择了AVAssetResourceLoader。
+
+#### AVAssetResourceLoader
+
+AVAssetResourceLoader 可以让我们自行掌握AVPlayer数据的加载，包括获取AVPlayer需要的数据的信息，以及可以决定传递多少数据给AVPlayer。
+
+![](http://ghexoblogimages.oss-cn-beijing.aliyuncs.com/18-11-22/72651347.jpg)
+
+实现原理：
+
+AVAssetResourceLoader 通过对 loadingRequest 的控制，间接控制 AVPlayer 数据的加载等操作。
+
+使用AVAssetResourceLoader需要实现AVAssetResourceLoaderDelegate的方法：
+
+```objc
+- (BOOL)resourceLoader:(AVAssetResourceLoader *)resourceLoader
+shouldWaitForLoadingOfRequestedResource:(AVAssetResourceLoadingRequest *)loadingRequest;
+```
+
+要求加载资源的代理方法，这时我们需要保存loadingRequest并对其所指定的数据进行读取或下载操作，当数据读取或下载完成，我们可以对loadingRequest进行完成操作。
+
+```objc
+- (void)resourceLoader:(AVAssetResourceLoader *)resourceLoader
+didCancelLoadingRequest:(AVAssetResourceLoadingRequest *)loadingRequest;
+```
+
+实现策略：
+
+通过AVAssetResourceLoader实现缓存的策略有多种，没有绝对的优与劣，只要符合我们的实际需求就可以了。
+
+下面我们以模仿企鹅音乐的来演示AVAssetResourceLoader实现缓存的过程为例子。
+
+![](http://ghexoblogimages.oss-cn-beijing.aliyuncs.com/18-11-22/23214634.jpg)
+
+先观察并猜测企鹅音乐的缓存策略（当然它不是用AVPlayer播放）：
+
+1、开始播放，同时开始下载完整的文件，当文件下载完成时，保存到缓存文件夹中；
+
+![](http://ghexoblogimages.oss-cn-beijing.aliyuncs.com/18-11-22/3981812.jpg)
+
+2、当seek时
+
+（1）如果seek到已下载到的部分，直接seek成功；（如下载进度60%，seek进度50%）
+
+（2）如果seek到未下载到的部分，则开始新的下载（如下载进度60%，seek进度70%）
+
+PS1：此时文件下载的范围是70%-100%
+
+PS2：之前已下载的部分就被删除了
+
+PS3：如果有别的seek操作则重复步骤2，如果此时再seek到进度40%，则会开始新的下载（范围40%-100%）
+
+![](http://ghexoblogimages.oss-cn-beijing.aliyuncs.com/18-11-22/9651923.jpg)
+
+3、当开始新的下载之后，由于文件不完整，下载完成之后不会保存到缓存文件夹中；
+
+4、下次再播放同一歌曲时，如果在缓存文件夹中存在，则直接播放缓存文件；
+
+![](http://ghexoblogimages.oss-cn-beijing.aliyuncs.com/18-11-22/4005265.jpg)
+
+代码实现：
+
+通过自定义scheme来创建avplayer，并给AVURLAsset指定代理（SUPlayer对象）
+
+```objc
+AVURLAsset * asset = [AVURLAsset URLAssetWithURL:[self.url customSchemeURL] options:nil];
+[asset.resourceLoader setDelegate:self.resourceLoader queue:dispatch_get_main_queue()];
+self.currentItem = [AVPlayerItem playerItemWithAsset:asset];
+self.player = [AVPlayer playerWithPlayerItem:self.currentItem];
+```
+
+代理实现AVAssetResourceLoader的代理方法（SUResourceLoader对象）
+
+```objc
+- (BOOL)resourceLoader:(AVAssetResourceLoader *)resourceLoader shouldWaitForLoadingOfRequestedResource:(AVAssetResourceLoadingRequest *)loadingRequest {
+    [self addLoadingRequest:loadingRequest];
+    return YES;
+}
+- (void)resourceLoader:(AVAssetResourceLoader *)resourceLoader didCancelLoadingRequest:(AVAssetResourceLoadingRequest *)loadingRequest {
+    [self removeLoadingRequest:loadingRequest];
+}
+```
+
+对loadingRequest的处理（addLoadingRequest方法）:
+
+1）将其加入到requestList中
+
+```objc
+[self.requestList addObject:loadingRequest];
+```
+
+2）如果还没开始下载，则开始请求数据，否则静待数据的下载
+
+```objc
+[self newTaskWithLoadingRequest:loadingRequest cache:YES];
+```
+
+3）如果是seek之后的loadingRequest，判断请求开始的位置，如果已经缓冲到，则直接读取数据
+
+```objc
+if (loadingRequest.dataRequest.requestedOffset >= self.requestTask.requestOffset &&
+    loadingRequest.dataRequest.requestedOffset <= self.requestTask.requestOffset + self.requestTask.cacheLength) {
+    [self processRequestList];
+}
+```
+
+4）如果还没缓冲到，则重新请求
+
+```objc
+if (self.seekRequired) {
+    [self newTaskWithLoadingRequest:loadingRequest cache:NO];
+}
+```
+
+4、数据请求的处理（newTaskWithLoadingRequest方法）
+
+1）先判断是否已经有下载任务，如果有，则先取消该任务
+
+```objc
+if (self.requestTask) {
+    fileLength = self.requestTask.fileLength;
+    self.requestTask.cancel = YES;
+}
+```
+
+2）建立新的请求，设置代理
+
+```objc
+self.requestTask = [[SURequestTask alloc]init];
+self.requestTask.requestURL = loadingRequest.request.URL;
+self.requestTask.requestOffset = loadingRequest.dataRequest.requestedOffset;
+self.requestTask.cache = cache;
+if (fileLength > 0) {
+    self.requestTask.fileLength = fileLength;
+}
+self.requestTask.delegate = self;
+[self.requestTask start];
+self.seekRequired = NO;
+```
+
+5、数据响应的处理（processRequestList方法）
+
+对requestList里面的loadingRequest填充响应数据，如果已完全响应，则将其从requestList中移除
+
+```objc
+- (void)processRequestList {
+NSMutableArray * finishRequestList = [NSMutableArray array];
+    for (AVAssetResourceLoadingRequest * loadingRequest in self.requestList) {
+    if ([self finishLoadingWithLoadingRequest:loadingRequest]) {
+        [finishRequestList addObject:loadingRequest];
+        }
+    }
+    [self.requestList removeObjectsInArray:finishRequestList];
+}
+```
+
+填充响应数据的过程如下：
+
+1）填写 contentInformationRequest的信息，注意contentLength需要填写下载的文件的总长度，contentType需要转换
+
+```objc
+CFStringRef contentType = UTTypeCreatePreferredIdentifierForTag(kUTTagClassMIMEType, (__bridge CFStringRef)(MimeType), NULL);
+loadingRequest.contentInformationRequest.contentType = CFBridgingRelease(contentType);
+loadingRequest.contentInformationRequest.byteRangeAccessSupported = YES;
+loadingRequest.contentInformationRequest.contentLength = self.requestTask.fileLength;
+```
+
+2）计算可以响应的数据长度，注意数据读取的起始位置是当前avplayer当前播放的位置，结束位置是loadingRequest的结束位置或者目前文件下载到的位置
+
+```objc
+NSUInteger cacheLength = self.requestTask.cacheLength;
+NSUInteger requestedOffset = loadingRequest.dataRequest.requestedOffset;
+if (loadingRequest.dataRequest.currentOffset != 0) {
+    requestedOffset = loadingRequest.dataRequest.currentOffset;
+}
+NSUInteger canReadLength = cacheLength - (requestedOffset - self.requestTask.requestOffset);
+NSUInteger respondLength = MIN(canReadLength, loadingRequest.dataRequest.requestedLength);
+```
+
+3）读取数据并填充到loadingRequest
+
+```objc
+[loadingRequest.dataRequest respondWithData:[SUFileHandle readTempFileDataWithOffset:requestedOffset - self.requestTask.requestOffset length:respondLength]];
+```
+
+4） 如果完全响应了所需要的数据，则完成loadingRequest，注意判断的依据是 响应数据结束的位置 >= loadingRequest结束的位置
+
+```objc
+NSUInteger nowendOffset = requestedOffset + canReadLength;
+NSUInteger reqEndOffset = loadingRequest.dataRequest.requestedOffset + loadingRequest.dataRequest.requestedLength;
+if (nowendOffset >= reqEndOffset) {
+    [loadingRequest finishLoading];
+    return YES;
+}
+return NO;
+```
+
+6、处理requestList的时机
+
+当有新的loadingRequest或者文件下载进度更新时，都需要处理requestList
+
+7、新的请求任务实现的过程（SURequestTask对象）
+
+1）初始化时，需要删除旧的临时文件，并创建新的空白临时文件
+
+```objc
+- (instancetype)init {
+if (self = [super init]) {
+        [SUFileHandle createTempFile];
+    }
+    return self;
+}
+```
+
+2）建立新的连接，如果是seek后的请求，则指定其请求内容的范围
+
+```objc
+- (void)start {
+    NSMutableURLRequest * request = [NSMutableURLRequest requestWithURL:[self.requestURL originalSchemeURL] cachePolicy:NSURLRequestReloadIgnoringCacheData timeoutInterval:RequestTimeout];
+    if (self.requestOffset > 0) {
+        [request addValue:[NSString stringWithFormat:@"bytes=%ld-%ld", self.requestOffset, self.fileLength - 1] forHTTPHeaderField:@"Range"];
+    }
+    self.session = [NSURLSession sessionWithConfiguration:[NSURLSessionConfiguration defaultSessionConfiguration] delegate:self delegateQueue:[NSOperationQueue mainQueue]];
+    self.task = [self.session dataTaskWithRequest:request];
+    [self.task resume];
+}
+```
+
+3）当收到数据时，将数据写入临时文件，更新下载进度，同时通知代理处理requestList
+
+```objc
+- (void)URLSession:(NSURLSession *)session dataTask:(NSURLSessionDataTask *)dataTask didReceiveData:(NSData *)data {
+    if (self.cancel) return;
+    [SUFileHandle writeTempFileData:data];
+    self.cacheLength += data.length;
+    if (self.delegate && [self.delegate respondsToSelector:@selector(requestTaskDidUpdateCache)]) {
+        [self.delegate requestTaskDidUpdateCache];
+    }
+}
+```
+
+4）当下载完成时，如果满足缓存的条件，则将临时文件拷贝到缓存文件夹中
+
+```objc
+if (self.cache) {
+    [SUFileHandle cacheTempFileWithFileName:[NSString fileNameWithURL:self.requestURL]];
+}
+if (self.delegate && [self.delegate respondsToSelector:@selector(requestTaskDidFinishLoadingWithCache:)]) {
+    [self.delegate requestTaskDidFinishLoadingWithCache:self.cache];
+}
+```
+
+演示效果：
+
+![](http://ghexoblogimages.oss-cn-beijing.aliyuncs.com/18-11-22/7355729.jpg)
+
+缓存功能优化点：
+
+* 1.对缓存格式支持的处理：并不是所有文件格式都支持的哦，对于不支持的格式，你应该不使用缓存功能；
+
+* 2.对缓存过程中各种错误的处理：比如下载超时、连接失败、读取数据错误等等的处理；
+
+* 3.缓存文件的命名处理，如果缓存文件没有后缀（如.mp4），可能会导致播放失败；
+
+### TheAmazingAudioEngine 实现音效模块
+
+TheAmazingAudioEngine就是基于AudioUnit框架、AudioToolBox框架、AVFoundation框架的封装，使其更方便使用。
+
+#### 播放功能
+和官方AVAudioPalyer以及AVAudioEngine都比较类似，拿到文件路径、或者音频buffer，调用相关方法播放即可，这里举例文件的播放。
+
+* 创建AEAudioController对象；
+* 拿到音频的路径（一个NSURL对象）；
+* 根据音频路径创建AEAudioFilePlayer对象；
+* 通过AEAudioController的addChannels:方法将AEAudioFilePlayer对象add到AEAudioController对象中即可。
+
+范例如下：
+
+```objc
+NSString *path = [[NSBundle mainBundle] pathForResource:@"specialPeople" ofType:@"mp3"];
+self.player = [[AEAudioFilePlayer alloc] initWithURL:[NSURL fileURLWithPath:path] error:&error];
+[self.audioController addChannels:@[self.player]];
+
+```
+
+播放本地音频
+
+```objc
+// 歌曲名和后缀名
+static NSString *audioFileName   = @"specialPeople";
+static NSString *audioFileFormat = @"mp3";
+
+NSURL *songURL = [[NSBundle mainBundle] URLForResource:audioFileName
+withExtension:audioFileFormat];
+```
+
+如果是想拿手机中的歌曲，则通过MPMediaPickerController的委托方法mediaPicker:didPickMediaItems:方法获得，如下：
+
+```objc
+#pragma mark - MPMediaPickerControllerDelegate
+- (void)mediaPicker:(MPMediaPickerController *)mediaPicker didPickMediaItems:(MPMediaItemCollection *)mediaItemCollection {
+
+// 我这里要播放两首歌,所以有两个MPMediaPickerController对象,这里作一个判断
+if (mediaPicker == _mediaCH1PickerController) {
+
+// mediaItemCollection.representativeItem.assetURL这一句即可拿到使用者选择歌曲的URL
+// 备注:这里已经将播放歌曲的方法playNewSongCH1:封装到自定义的engine类中
+[[HNMCManager shareManager].engine playNewSongCH1:mediaItemCollection.representativeItem.assetURL];
+} 
+else {
+[[HNMCManager shareManager].engine playNewSongCH2:mediaItemCollection.representativeItem.assetURL];
+}
+
+[self dismissViewControllerAnimated:YES completion:nil];
+}
+```
+
+#### 音效的实现
+
+所有音效都是基于AEAudioUnitFilter类实现的。
+
+TheAmazingAudioEngine上的音效比苹果官方的AVAudioEngine丰富且容易实现。
+
+总的步骤：
+
+创建AEAudioUnitFilter或其子类对象
+用AEAudioController的addFilter:方法将Filter对象add到AEAudioController对象中
+设置相关属性值，实现音效的控制
+
+1）实现高通音效
+
+该框架有现成的高通音效类：
+
+```objc
+#pragma mark 高通音效
+- (void)setupFilterHighPass:(double)cutoffFrequency {
+// 创建并添加AEAudioUnitFilter实例
+[self addHighpassFilter];
+
+// 设置相关属性值，达到音效的控制
+_highPassFilter.cutoffFrequency = cutoffFrequency;
+}
+
+- (void)addHighpassFilter {
+// _highPassFilter是AEHighPassFilter类的实例
+// AEHighPassFilter是AEAudioUnitFilter的子类
+if (!_highPassFilter) {
+_highPassFilter = [[AEHighPassFilter alloc] init];
+[_audioController addFilter:_highPassFilter];
+} else {
+if ( ![_audioController.filters containsObject:_highPassFilter] ) {
+[_audioController addFilter:_highPassFilter];
+}
+}
+}
+```
+
+#### 实现EQ调整
+
+因为本来对音频相关领域的概念、知识不太了解，实现EQ调整还颇费了一番周折。需要实现的EQ调整类似下图：
+
+![](http://ghexoblogimages.oss-cn-beijing.aliyuncs.com/18-11-22/67518880.jpg)
+
+可以通过AEParametricEqFilter类实现，该类也是AEAudioUnitFilter的子类，要实现10段EQ值的调整，就要创建10个AEParametricEqFilter对象，给centerFrequency属性赋值20Hz-20000Hz之间的值(取决于你要调整哪个频率的声音)。而具体音效调整，则是调整增益值(通过gain属性)，值范围：-20dB to 20dB。
+
+```objc
+#pragma mark EQ音效
+// 创建10个AEParametricEqFilter对象
+- (void)creatEqFliters {
+_eq20HzFilter  = [[AEParametricEqFilter alloc] init];
+_eq50HzFilter  = [[AEParametricEqFilter alloc] init];
+_eq100HzFilter = [[AEParametricEqFilter alloc] init];
+_eq200HzFilter = [[AEParametricEqFilter alloc] init];
+_eq500HzFilter = [[AEParametricEqFilter alloc] init];
+_eq1kFilter    = [[AEParametricEqFilter alloc] init];
+_eq2kFilter    = [[AEParametricEqFilter alloc] init];
+_eq5kFilter    = [[AEParametricEqFilter alloc] init];
+_eq10kFilter   = [[AEParametricEqFilter alloc] init];
+_eq20kFilter   = [[AEParametricEqFilter alloc] init];
+_eqFilters     = @[_eq20HzFilter, _eq50HzFilter, _eq100HzFilter, _eq200HzFilter, _eq500HzFilter, _eq1kFilter, _eq2kFilter, _eq5kFilter, _eq10kFilter, _eq20kFilter];
+}
+
+- (void)setupFilterEq:(NSInteger)eqType value:(double)gain {
+switch (eqType) {
+case EQ_20Hz: {
+// 设置需要调整的频率，并将传入的增益值gain赋值给gain属性，达到音效调整效果
+[self setupEqFilter:_eq20HzFilter centerFrequency:20 gain:gain];
+break;
+}
+case EQ_50Hz: {
+[self setupEqFilter:_eq50HzFilter centerFrequency:50 gain:gain];
+break;
+}
+case EQ_100Hz: {
+[self setupEqFilter:_eq100HzFilter centerFrequency:100 gain:gain];
+break;
+}
+case EQ_200Hz: {
+[self setupEqFilter:_eq200HzFilter centerFrequency:200 gain:gain];
+break;
+}
+case EQ_500Hz: {
+[self setupEqFilter:_eq500HzFilter centerFrequency:500 gain:gain];
+break;
+}
+case EQ_1K: {
+[self setupEqFilter:_eq1kFilter centerFrequency:1000 gain:gain];
+break;
+}
+case EQ_2K: {
+[self setupEqFilter:_eq2kFilter centerFrequency:2000 gain:gain];
+break;
+}
+case EQ_5K: {
+[self setupEqFilter:_eq5kFilter centerFrequency:5000 gain:gain];
+break;
+}
+case EQ_10K: {
+[self setupEqFilter:_eq10kFilter centerFrequency:10000 gain:gain];
+break;
+}
+case EQ_20K: {
+[self setupEqFilter:_eq20kFilter centerFrequency:20000 gain:gain];
+break;
+}
+}
+}
+
+- (void)setupEqFilter:(AEParametricEqFilter *)eqFilter centerFrequency:(double)centerFrequency gain:(double)gain {
+if ( ![_audioController.filters containsObject:eqFilter] ) {
+for (AEParametricEqFilter *existEqFilter in _eqFilters) {
+if (eqFilter == existEqFilter) {
+[_audioController addFilter:eqFilter];
+break;
+}
+}
+}
+
+eqFilter.centerFrequency = centerFrequency;
+eqFilter.qFactor         = 1.0;
+eqFilter.gain            = gain;
+}
+```
+
+以上就是应用TheAmazingAudioEngine框架进行音频播放、录制、音效实现的一次简单实践分享。
+
+### 发掘 AVPlayer 的潜力
+
+音频播放的实现级别：
+* 离线播放：这里并不是指应用不联网，而是指播放本地音频文件，包括先下完完成音频文件再进行播放的情况，这种使用AVFoundation里的AVAudioPlayer可以满足
+* 在线播放：使用AVFoundation的AVPlayer可以满足
+* 在线播放同时存储文件：使用AudioFileStreamer ＋ AudioQueue 可以满足
+* 在线播放且带有音效处理：使用 AudioFileStreamer ＋ AudioQueue ＋ 音效模块（系统自带或者自行开发）来满足
+
+未完待续，AVFoundation 体系太大，慢慢整理 🤣
+
+> 以上文章整理自：https://www.jianshu.com/p/589999e53461、https://blog.csdn.net/zahuopuboss/article/details/54862749、https://blog.csdn.net/feng2qing/article/details/67655175、https://blog.csdn.net/dolacmeng/article/details/77430108、https://www.jianshu.com/p/746cec2c3759、http://www.cocoachina.com/ios/20160726/17194.html、https://www.jianshu.com/p/c48195126040、https://www.jianshu.com/p/a7d5f43a84fb
+
+
+    
